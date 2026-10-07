@@ -33,7 +33,7 @@ async function testBrowser(engineName, launcher) {
       consoleErrors.push(err.message);
     });
 
-    await page.goto('http://localhost:4000/presentation/index.html', { waitUntil: 'networkidle' });
+    await page.goto('http://localhost:4000/presentation/index.html', { waitUntil: 'load', timeout: 15000 });
     await page.waitForTimeout(1000);
 
     // 1. Check Console Errors
@@ -105,13 +105,29 @@ async function testBrowser(engineName, launcher) {
 }
 
 (async () => {
+  let serverInstance = null;
+  const isServerRunning = await new Promise(res => {
+    const req = require('http').get('http://localhost:4000/', r => res(true));
+    req.on('error', () => res(false));
+    req.setTimeout(1000, () => { req.destroy(); res(false); });
+  });
+
+  if (!isServerRunning) {
+    console.log('Starting internal HTTP server on port 4000 for tests...');
+    serverInstance = require('./server.js');
+    await new Promise(r => setTimeout(r, 1000));
+  }
+
   const chromeOk = await testBrowser('chromium', chromium);
   const webkitOk = await testBrowser('webkit', webkit);
 
   console.log('\n========================================');
   console.log(`SUMMARY: Chromium: ${chromeOk ? 'ALL PASS' : 'FAIL'} | WebKit: ${webkitOk ? 'ALL PASS' : 'FAIL'}`);
   console.log('========================================');
-  if (!chromeOk || !webkitOk) {
-    process.exit(1);
+
+  if (serverInstance && serverInstance.close) {
+    serverInstance.close();
   }
+
+  process.exit(!chromeOk || !webkitOk ? 1 : 0);
 })();

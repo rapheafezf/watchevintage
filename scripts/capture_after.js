@@ -27,12 +27,27 @@ async function run() {
     deviceScaleFactor: 2
   });
 
+  // Start server if needed
+  let serverInstance = null;
+  const isServerRunning = await new Promise(res => {
+    const req = require('http').get('http://localhost:4000/', r => res(true));
+    req.on('error', () => res(false));
+    req.setTimeout(1000, () => { req.destroy(); res(false); });
+  });
+
+  if (!isServerRunning) {
+    console.log('Starting internal HTTP server on port 4000...');
+    const serverModule = require('./server.js');
+    serverInstance = serverModule;
+    await new Promise(r => setTimeout(r, 1000));
+  }
+
   console.log('--- CAPTURING AFTER: DESKTOP (1440x900) ---');
   const dPage = await desktopContext.newPage();
   for (const p of pages) {
     console.log(`Capturing ${p.name} Desktop...`);
-    await dPage.goto(p.url, { waitUntil: 'networkidle' });
-    await dPage.waitForTimeout(1000);
+    await dPage.goto(p.url, { waitUntil: 'load', timeout: 15000 });
+    await dPage.waitForTimeout(1200);
     await dPage.screenshot({ path: `captures/after/desktop/${p.name}.png` });
     await dPage.screenshot({ path: `captures/after/desktop/${p.name}_full.png`, fullPage: true });
   }
@@ -43,8 +58,8 @@ async function run() {
   const mPage = await mobileContext.newPage();
   for (const p of pages) {
     console.log(`Capturing ${p.name} Mobile...`);
-    await mPage.goto(p.url, { waitUntil: 'networkidle' });
-    await mPage.waitForTimeout(1000);
+    await mPage.goto(p.url, { waitUntil: 'load', timeout: 15000 });
+    await mPage.waitForTimeout(1200);
     await mPage.screenshot({ path: `captures/after/mobile/${p.name}.png` });
     await mPage.screenshot({ path: `captures/after/mobile/${p.name}_full.png`, fullPage: true });
   }
@@ -53,6 +68,10 @@ async function run() {
 
   await browser.close();
   console.log('ALL AFTER CAPTURES FINISHED SUCCESSFULLY!');
+  if (serverInstance && serverInstance.close) {
+    serverInstance.close();
+  }
+  process.exit(0);
 }
 
 run().catch(err => {

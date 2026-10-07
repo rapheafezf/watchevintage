@@ -334,30 +334,41 @@
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-md);
-      padding: 20px;
+      padding: 22px 20px;
       box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .point-card:hover {
+      border-color: #cfcac0;
+      box-shadow: var(--shadow-md);
     }
     .point-card-num {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--color-brand-blue-light);
-      color: var(--color-brand-blue);
+      font-family: var(--font-serif);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-gold);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 12px;
+      gap: 8px;
+    }
+    .point-card-num::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
     }
     .point-card-title {
       font-size: 15px;
       font-weight: 700;
       color: var(--color-dark);
-      margin-bottom: 6px;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
     .point-card-text {
-      font-size: 13px;
+      font-size: 13.5px;
       color: var(--color-text-muted);
       line-height: 1.6;
     }
@@ -956,32 +967,32 @@
 
       <div class="pres-intro-grid">
         <div>
-          <span class="prop-pill" style="margin-bottom: 14px;">Dossier Décisionnel Client</span>
+          <span class="prop-pill" style="margin-bottom: 14px;">Proposition pour David Broglin</span>
           <h1 class="pres-main-title">
-            Sublimer votre savoir-faire horloger pour <span>déclencher la confiance immédiate</span>.
+            Mettre en valeur vos montres et <span>votre travail d'atelier</span>.
           </h1>
           <p class="pres-main-lead">
-            Ce dossier présente, écran par écran, la comparaison directe entre votre boutique actuelle et la proposition de refonte haute horlogerie. L'objectif n'est pas seulement esthétique : il s'agit de rassurer vos acheteurs, justifier la valeur des pièces révisées et éliminer les frictions d'achat sur ordinateur comme sur mobile.
+            Voici une proposition concrète pour moderniser le site Watch &amp; Vintage. L'idée principale : donner toute la place à vos photographies, valoriser le travail artisanal de révision effectué en Alsace, et rassurer immédiatement les passionnés d'horlogerie sur ordinateur comme sur téléphone.
           </p>
         </div>
 
         <div class="pres-reasons-card">
           <h2 class="pres-reasons-title">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-            Les 3 piliers de cette proposition
+            Les 3 priorités de cette refonte
           </h2>
           <ul class="pres-reasons-list">
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Valorisation du métier :</strong> Mise en avant directe de l'atelier de révision, des huiles Moebius, du réglage et de la garantie 1 an.</div>
+              <div><strong>L'atelier au premier plan :</strong> Rappeler clairement que chaque pièce est révisée, huilée et garantie 1 an par un horloger.</div>
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Preuve sociale Chrono24 :</strong> Vos 480 avis 5.0/5 et votre statut Trusted Seller visibles là où le client hésite.</div>
+              <div><strong>Vos 480 avis Chrono24 :</strong> Votre note de 5.0/5 et votre statut vendeur de confiance visibles dès l'arrivée.</div>
             </li>
             <li>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Expérience mobile tactile :</strong> Boutons accessibles au pouce, galeries zoomables et catalogue instantanément filtrable.</div>
+              <div><strong>Parfait sur smartphone :</strong> Des photos plus grandes, un zoom net sur les détails et un panier simple sans surprise.</div>
             </li>
           </ul>
         </div>
@@ -1044,33 +1055,33 @@
        ========================================================================= -->
   <section class="chapter-section" id="chap-home">
     <div class="chapter-header">
-      <span class="chapter-eyebrow">Écran 01 &bull; Première Impression</span>
-      <h2 class="chapter-title">Page d'Accueil : De boutique e-commerce à galerie d'art horloger</h2>
+      <span class="chapter-eyebrow">Page d'accueil</span>
+      <h2 class="chapter-title">Accueil : un premier regard clair et soigné sur votre collection</h2>
       <p class="chapter-desc">
-        La première impression conditionne la décision d'un collectionneur de dépenser 300 € à 1 500 € en ligne. L'ancien site affiche un bandeau compact et peu lisible ; la refonte installe immédiatement l'ambiance feutrée d'un salon d'horlogerie de prestige.
+        Dès l'arrivée sur le site, l'amateur de montres vintage doit être accueilli avec le sérieux d'un véritable atelier d'horlogerie : de grandes photographies nettes, des informations précises et vos garanties bien visibles.
       </p>
     </div>
 
     <div class="chapter-points-grid">
       <div class="point-card">
-        <div class="point-card-num">1</div>
-        <h3 class="point-card-title">Identité &amp; Crédibilité Visuelle</h3>
+        <div class="point-card-num">Point 1</div>
+        <h3 class="point-card-title">Vos photographies au premier plan</h3>
         <p class="point-card-text">
-          Typographie éditoriale noble, mise en scène de la montre de la semaine et micro-animation vectorielle de cadran qui confèrent une dimension luxueuse dès les premières secondes.
+          Une mise en page aérée qui laisse respirer chaque modèle, sans encombrement inutile, pour apprécier immédiatement l'état du cadran et de la boîte.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">2</div>
-        <h3 class="point-card-title">Rassurance Immédiate</h3>
+        <div class="point-card-num">Point 2</div>
+        <h3 class="point-card-title">Vos garanties visibles d'emblée</h3>
         <p class="point-card-text">
-          Affichage instantané des piliers essentiels : garantie mécanique 1 an, expédition assurée dans le monde entier et statut Chrono24 Trusted Seller 5.0/5 sur 480 avis réels.
+          Garantie mécanique de 1 an sur chaque pièce, livraison soignée avec assurance et votre note Chrono24 de 5.0/5 sur 480 avis réels.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">3</div>
-        <h3 class="point-card-title">Mise en avant de l'Atelier en Alsace</h3>
+        <div class="point-card-num">Point 3</div>
+        <h3 class="point-card-title">Le travail de l'atelier en Alsace</h3>
         <p class="point-card-text">
-          Valorisation du travail de David Broglin avec une signature manuscrite authentique et une explication concrète du protocole de révision (démontage, nettoyage, huilage).
+          Une explication concrète de votre révision : démontage, nettoyage aux ultrasons, huilage et réglage de précision avant chaque mise en vente.
         </p>
       </div>
     </div>
@@ -1124,33 +1135,33 @@
        ========================================================================= -->
   <section class="chapter-section" id="chap-catalog">
     <div class="chapter-header">
-      <span class="chapter-eyebrow">Écran 02 &bull; Navigation &amp; Découverte</span>
-      <h2 class="chapter-title">Catalogue « Watches » : Filtres instantanés et cartes aérées</h2>
+      <span class="chapter-eyebrow">Catalogue des montres</span>
+      <h2 class="chapter-title">Catalogue : trouver rapidement sa montre par marque ou budget</h2>
       <p class="chapter-desc">
-        Dans un catalogue de pièces vintage uniques, l'acheteur cherche souvent une marque spécifique (Seiko, Longines, Citizen) ou un budget précis. L'actuel affichage mélange pièces disponibles et vendues sans hiérarchie ; la refonte apporte des filtres interactifs et sépare nettement les statuts.
+        Chaque montre ancienne est une pièce unique. Pour que le visiteur trouve facilement ce qu'il cherche sans être submergé, la présentation est épurée, le tri est immédiat et les pièces déjà vendues sont discrètement séparées.
       </p>
     </div>
 
     <div class="chapter-points-grid">
       <div class="point-card">
-        <div class="point-card-num">1</div>
-        <h3 class="point-card-title">Filtres Utiles &amp; Immédiats</h3>
+        <div class="point-card-num">Point 1</div>
+        <h3 class="point-card-title">Filtres simples et utiles</h3>
         <p class="point-card-text">
-          Filtrage direct par disponibilité (disponible / vendue), par manufacture (Seiko, Longines, Citizen, Omega), par époque (années 60, 70, 90) et par tranche de prix.
+          Tri direct par manufacture (Seiko, Longines, Citizen, Omega), par budget ou par décennie (années 60, 70), sans avoir besoin de recharger la page.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">2</div>
-        <h3 class="point-card-title">Pièces Vendues Traitées avec Élégance</h3>
+        <div class="point-card-num">Point 2</div>
+        <h3 class="point-card-title">Séparation nette des pièces vendues</h3>
         <p class="point-card-text">
-          Les montres « Sold Out » ne polluent plus la recherche : elles sont grisées avec discrétion, dotées d'un badge sobre et peuvent être masquées en un clic.
+          Les montres « Sold Out » sont grisées sobrement pour ne pas encombrer le regard de ceux qui souhaitent acheter aujourd'hui.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">3</div>
-        <h3 class="point-card-title">Fiches Cartes Informatisées</h3>
+        <div class="point-card-num">Point 3</div>
+        <h3 class="point-card-title">Les informations clés sur chaque vignette</h3>
         <p class="point-card-text">
-          Chaque vignette indique la référence du calibre, le diamètre du boîtier, l'année exacte et la date de révision (ex. Serviced 10/2026), sans surcharge visuelle.
+          Calibre, diamètre du boîtier, année de fabrication et date de révision indiqués de manière sobre sous chaque photographie.
         </p>
       </div>
     </div>
@@ -1204,33 +1215,33 @@
        ========================================================================= -->
   <section class="chapter-section" id="chap-available">
     <div class="chapter-header">
-      <span class="chapter-eyebrow">Écran 03 &bull; Fiche Produit en Stock</span>
-      <h2 class="chapter-title">Citizen Date Flake 1966 : Galerie haute définition et dossier technique</h2>
+      <span class="chapter-eyebrow">Fiche montre disponible</span>
+      <h2 class="chapter-title">Citizen Date Flake 1966 : inspecter chaque détail avant d'acheter</h2>
       <p class="chapter-desc">
-        Sur une montre vintage de plus de 50 ans, l'acheteur scrute chaque micro-détail du cadran, des aiguilles et du mouvement. La refonte transforme la fiche produit en un véritable dossier d'expert avec loupe d'inspection et réassurance complète.
+        Pour une pièce mécanique de plus de cinquante ans, l'acheteur a besoin de confiance. Il doit pouvoir examiner chaque angle du cadran, du boîtier et du calibre, et lire des caractéristiques techniques complètes sans ambiguïté.
       </p>
     </div>
 
     <div class="chapter-points-grid">
       <div class="point-card">
-        <div class="point-card-num">1</div>
-        <h3 class="point-card-title">Galerie Haute Définition avec Zoom</h3>
+        <div class="point-card-num">Point 1</div>
+        <h3 class="point-card-title">Galerie photo complète avec zoom</h3>
         <p class="point-card-text">
-          8 photographies réelles sous tous les angles (cadran, profil, couronne, fond, calibre 2710) avec zoom interactif au survol pour inspecter l'état sans surprise.
+          8 photographies réelles sous tous les angles (cadran, profil, couronne, fond de boîte, calibre 2710) avec un zoom précis au survol.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">2</div>
-        <h3 class="point-card-title">Dossier Technique Complet</h3>
+        <div class="point-card-num">Point 2</div>
+        <h3 class="point-card-title">Fiche technique claire et détaillée</h3>
         <p class="point-card-text">
-          Tableau des caractéristiques clair : manufacture, calibre 2710, fréquence 18 000 bph, boîtier acier 38 mm, verre neuf, bracelet cuir neuf et révision documentée.
+          Toutes les données essentielles : manufacture, calibre 2710, fréquence 18 000 alt/h, diamètre 38 mm, verre neuf, bracelet cuir neuf et état documenté.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">3</div>
-        <h3 class="point-card-title">Bouton d'Achat Accessible au Pouce</h3>
+        <div class="point-card-num">Point 3</div>
+        <h3 class="point-card-title">Bouton de commande direct et rassurant</h3>
         <p class="point-card-text">
-          CTA clair « Add to Bag — € 340.00 » avec barre d'action mobile ancrée en bas de l'écran tactile, évitant de faire défiler toute la page pour commander.
+          Prix affiché sans équivoque (340,00 €), rappel de la livraison assurée et bouton clair pour commander facilement sur ordinateur comme sur téléphone.
         </p>
       </div>
     </div>
@@ -1284,33 +1295,33 @@
        ========================================================================= -->
   <section class="chapter-section" id="chap-soldout">
     <div class="chapter-header">
-      <span class="chapter-eyebrow">Écran 04 &bull; Gestion des Pièces Vendues</span>
-      <h2 class="chapter-title">Longines Ultra-Chron 1967 (Sold Out) : Transformer la rupture en opportunité</h2>
+      <span class="chapter-eyebrow">Montre vendue (Sold Out)</span>
+      <h2 class="chapter-title">Longines Ultra-Chron 1967 : conserver la pièce en archive et orienter le client</h2>
       <p class="chapter-desc">
-        Actuellement, lorsqu'une pièce est vendue, l'internaute arrive sur un bouton désactivé sans issue. La refonte transforme la pièce archivée en preuve de qualité et propose un formulaire d'alerte conciergerie personnalisé pour sourcer une pièce similaire.
+        Une montre vendue fait partie de l'histoire de la boutique et témoigne de la qualité de vos pièces. Plutôt que de laisser le visiteur devant une impasse, la fiche est conservée comme référence et propose une alternative naturelle.
       </p>
     </div>
 
     <div class="chapter-points-grid">
       <div class="point-card">
-        <div class="point-card-num">1</div>
-        <h3 class="point-card-title">Statut Clair &amp; Valeur d'Archive</h3>
+        <div class="point-card-num">Point 1</div>
+        <h3 class="point-card-title">Archive et cote conservées</h3>
         <p class="point-card-text">
-          Le prix réel de 790,00 € et l'état sont conservés à titre d'archive historique et de référence de valeur marchande pour les collectionneurs.
+          Le prix réel de vente (790,00 €) et les caractéristiques restent visibles comme repère historique pour les passionnés.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">2</div>
-        <h3 class="point-card-title">Service Conciergerie &amp; Alerte</h3>
+        <div class="point-card-num">Point 2</div>
+        <h3 class="point-card-title">Formulaire pour recherche personnalisée</h3>
         <p class="point-card-text">
-          Au lieu d'un cul-de-sac commercial, un module propose : « Vous cherchez une Longines Ultra-Chron similaire ? David source régulièrement des pièces authentiques ».
+          Un encadré simple invite le visiteur à vous contacter s'il recherche un modèle similaire ou un calibre équivalent.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">3</div>
-        <h3 class="point-card-title">Suggestions Alternatives en Stock</h3>
+        <div class="point-card-num">Point 3</div>
+        <h3 class="point-card-title">Suggestions de montres disponibles</h3>
         <p class="point-card-text">
-          Redirection immédiate vers les montres suisses et japonaises actuellement en stock (Longines Admiral, Citizen Flake), évitant la perte du visiteur.
+          Présentation directe de modèles comparables actuellement en stock pour prolonger la visite en toute fluidité.
         </p>
       </div>
     </div>
@@ -1364,33 +1375,33 @@
        ========================================================================= -->
   <section class="chapter-section" id="chap-cart">
     <div class="chapter-header">
-      <span class="chapter-eyebrow">Écran 05 &bull; Fin de Tunnel d'Achat</span>
-      <h2 class="chapter-title">Panier &amp; Commande : Transparence, assurance et sécurité sans friction</h2>
+      <span class="chapter-eyebrow">Panier &amp; commande</span>
+      <h2 class="chapter-title">Panier : clarté totale sur la livraison et le règlement</h2>
       <p class="chapter-desc">
-        C'est à l'étape du panier que 70 % des acheteurs abandonnent s'ils ont un doute sur les frais de port, la sécurité ou la garantie. La refonte clarifie immédiatement les frais d'expédition assurée (18 €) et structure le tunnel jusqu'au paiement sans exiger de création de compte obligatoire.
+        Au moment de valider une montre de valeur, chaque détail compte : les frais de port avec assurance sont affichés sans détour, la garantie est rappelée et le règlement s'effectue en toute simplicité.
       </p>
     </div>
 
     <div class="chapter-points-grid">
       <div class="point-card">
-        <div class="point-card-num">1</div>
-        <h3 class="point-card-title">Récapitulatif Visuel Transparent</h3>
+        <div class="point-card-num">Point 1</div>
+        <h3 class="point-card-title">Récapitulatif visuel et garantie rappelée</h3>
         <p class="point-card-text">
-          La montre achetée reste toujours visible avec sa photo, son calibre et la mention explicite « Garantie 1 an atelier incluse sans surcoût ».
+          La montre reste visible avec sa photographie, son calibre et la mention claire : « Garantie mécanique 1 an incluse ».
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">2</div>
-        <h3 class="point-card-title">Frais d'Expédition Assurée Précisés</h3>
+        <div class="point-card-num">Point 2</div>
+        <h3 class="point-card-title">Livraison assurée annoncée d'emblée</h3>
         <p class="point-card-text">
-          Calcul clair des frais de port (18,00 € avec couverture intégrale de la valeur de la montre en cas de perte postale), sans mauvaise surprise en fin de saisie.
+          Frais de port de 18,00 € précisés dès le début, avec couverture intégrale de la valeur de la montre et remise contre signature.
         </p>
       </div>
       <div class="point-card">
-        <div class="point-card-num">3</div>
-        <h3 class="point-card-title">Choix des Moyens de Paiement</h3>
+        <div class="point-card-num">Point 3</div>
+        <h3 class="point-card-title">Moyens de règlement simples</h3>
         <p class="point-card-text">
-          Présentation soignée des options réelles : Carte bancaire (Visa, MasterCard, Amex), PayPal, ou virement bancaire direct pour les gros montants.
+          Paiement sécurisé par carte bancaire, PayPal ou virement bancaire pour les collectionneurs qui le souhaitent.
         </p>
       </div>
     </div>
@@ -1463,10 +1474,10 @@
   <!-- Footer -->
   <footer class="pres-footer">
     <p>
-      <strong>Watch &amp; Vintage &bull; Proposition de Refonte Stratégique</strong>
+      <strong>Watch &amp; Vintage &bull; Proposition de Refonte pour David Broglin</strong>
     </p>
     <p style="margin-top: 8px;">
-      Basé sur les données réelles relevées sur watchandvintage.fr le 7 octobre 2026. Aucune modification en ligne sur le site de production sans votre accord explicite.
+      Étude préparée à partir des photographies, textes et montres réels de watchandvintage.fr (relevés le 7 octobre 2026).
     </p>
   </footer>
 

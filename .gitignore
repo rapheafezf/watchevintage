@@ -20,3 +20,4 @@ yarn-error.log*
 test_*.png
 presentation/test_*.png
 captures/temp/
+.vercel

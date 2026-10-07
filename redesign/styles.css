@@ -84,36 +84,29 @@ button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: rgba(17, 22, 27, 0.9);
+  background: rgba(17, 22, 27, 0.92);
   backdrop-filter: blur(8px);
-  color: #ffffff;
-  padding: 8px 16px;
+  color: var(--color-gold);
+  padding: 8px 18px;
   border-radius: 999px;
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   z-index: 9999;
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(191, 161, 95, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(191, 161, 95, 0.45);
 }
 .proposal-badge-fixed::before {
   content: '';
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background-color: var(--color-gold);
   display: inline-block;
-  animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
-  0% { transform: scale(0.95); opacity: 0.8; }
-  50% { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.95); opacity: 0.8; }
 }
 
 /* --- TOP ANNOUNCEMENT BAR --- */
@@ -301,17 +294,11 @@ button {
 /* --- HERO SECTION --- */
 .hero {
   position: relative;
-  background: linear-gradient(135deg, #131b22 0%, #1f2c37 50%, #10161b 100%);
+  background: #161e26;
   color: #ffffff;
-  padding: 90px 32px 100px;
+  padding: 80px 32px 90px;
   overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 75% 40%, rgba(61, 103, 126, 0.25) 0%, transparent 60%);
-  pointer-events: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 .hero-container {
   max-width: 1360px;
@@ -457,7 +444,7 @@ button {
   transition: transform 0.5s ease;
 }
 .hero-watch-card:hover .hero-watch-img {
-  transform: scale(1.04) rotate(-1deg);
+  transform: scale(1.03);
 }
 .hero-watch-meta {
   margin-top: 16px;
@@ -483,23 +470,6 @@ button {
   font-size: 18px;
   font-weight: 700;
   color: #ffffff;
-}
-
-/* Subtle SVG dial / movement animation behind */
-.hero-svg-compass {
-  position: absolute;
-  width: 480px;
-  height: 480px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  opacity: 0.25;
-  animation: rotateDial 80s linear infinite;
-}
-@keyframes rotateDial {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* --- TRUST BANNER --- */
