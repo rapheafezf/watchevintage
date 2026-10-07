@@ -7,12 +7,12 @@ async function run() {
   const browser = await chromium.launch({ headless: true });
 
   const pages = [
-    { name: 'home', url: 'http://localhost:4000/redesign/index.html' },
-    { name: 'catalog', url: 'http://localhost:4000/redesign/catalog.html' },
-    { name: 'product_available', url: 'http://localhost:4000/redesign/product-available.html' },
-    { name: 'product_soldout', url: 'http://localhost:4000/redesign/product-soldout.html' },
-    { name: 'cart', url: 'http://localhost:4000/redesign/cart.html' },
-    { name: 'checkout', url: 'http://localhost:4000/redesign/checkout.html' }
+    { name: 'home', url: 'http://localhost:4000/index.html' },
+    { name: 'catalog', url: 'http://localhost:4000/catalog.html' },
+    { name: 'product_available', url: 'http://localhost:4000/product-available.html' },
+    { name: 'product_soldout', url: 'http://localhost:4000/product-soldout.html' },
+    { name: 'cart', url: 'http://localhost:4000/cart.html' },
+    { name: 'checkout', url: 'http://localhost:4000/checkout.html' }
   ];
 
   const desktopContext = await browser.newContext({

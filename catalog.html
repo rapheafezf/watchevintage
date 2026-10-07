@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vintage Watches Catalogue | Watch &amp; Vintage</title>
+  <meta name="description" content="Browse our curated collection of serviced and guaranteed vintage watches. Seiko, Longines, Citizen, Omega. Filter by brand, era, and availability.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Proposal Badge -->
+  <a href="presentation/index.html" class="proposal-badge-fixed" title="Voir la présentation comparative Avant / Après">
+    Proposition de refonte
+  </a>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        1-Year Guarantee
+      </span>
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Worldwide Insured Shipping
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <span class="top-bar-item">
+        Chrono24 Trusted Seller <strong class="top-bar-badge">5.0 / 5 (480 reviews)</strong>
+      </span>
+      <span class="top-bar-item">EUR (€)</span>
+    </div>
+  </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-group" aria-label="Watch &amp; Vintage">
+        <img src="assets/logo.webp" alt="Watch &amp; Vintage Logo" class="brand-logo-img">
+        <div class="brand-titles">
+          <span class="brand-name">WATCH &amp; VINTAGE</span>
+          <span class="brand-sub">Serviced Vintage Timepieces</span>
+        </div>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="catalog.html" class="nav-link active">Watches</a>
+        <a href="catalog.html?brand=seiko" class="nav-link">Seiko Specialist</a>
+        <a href="catalog.html?brand=longines" class="nav-link">Swiss Classics</a>
+        <a href="index.html#about" class="nav-link">Our Workshop</a>
+        <a href="index.html#reviews" class="nav-link">Reviews</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="header-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="search-input" placeholder="Search calibre, brand...">
+        </div>
+        <a href="cart.html" class="header-cart-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Bag</span>
+          <span class="cart-count">1</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Catalog Section -->
+  <main class="section">
+    <div style="margin-bottom: 24px;">
+      <span class="section-eyebrow">Catalogue &bull; Timepieces Collection</span>
+      <h1 class="section-title">All Vintage Watches</h1>
+      <p style="color: var(--color-text-muted); font-size: 15px; margin-top: 8px;">
+        Every piece has been checked, overhauled, regulated, and is backed by our 1-year guarantee.
+      </p>
+    </div>
+
+    <!-- Mobile Filter Controls -->
+    <div class="catalog-mobile-controls">
+      <div class="mobile-filter-bar">
+        <button type="button" class="mobile-filter-toggle-btn" id="mobile-filter-toggle-btn" aria-expanded="false" onclick="toggleMobileSidebar()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          <span>Filters &amp; Refine</span>
+          <svg class="chevron-filter" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div style="font-size: 13px; color: var(--color-text-muted);">
+          <strong id="mobile-item-count" style="color: var(--color-dark);">12</strong> timepieces
+        </div>
+      </div>
+      <div class="mobile-chips-row">
+        <button type="button" class="quick-chip active" data-filter="all" onclick="applyQuickFilter('all', this)">All (12)</button>
+        <button type="button" class="quick-chip" data-filter="available" onclick="applyQuickFilter('available', this)">Available (8)</button>
+        <button type="button" class="quick-chip" data-filter="seiko" onclick="applyQuickFilter('seiko', this)">Seiko (5)</button>
+        <button type="button" class="quick-chip" data-filter="longines" onclick="applyQuickFilter('longines', this)">Longines (4)</button>
+      </div>
+    </div>
+
+    <div class="catalog-layout">
+      <!-- Interactive Sidebar Filters -->
+      <aside class="catalog-sidebar">
+        <div class="filter-group">
+          <div class="filter-title">
+            <span>Availability</span>
+          </div>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="availability" value="all" checked onchange="filterWatches()"> All Timepieces</span>
+                <span class="filter-count">12</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="availability" value="available" onchange="filterWatches()"> Available Only</span>
+                <span class="filter-count">8</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="availability" value="sold" onchange="filterWatches()"> Sold Out (Archive)</span>
+                <span class="filter-count">4</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-title">
+            <span>Brand</span>
+          </div>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="all" checked onchange="handleAllBrand(this)"> All Brands</span>
+                <span class="filter-count">12</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="seiko" onchange="filterWatches()"> Seiko</span>
+                <span class="filter-count">5</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="longines" onchange="filterWatches()"> Longines</span>
+                <span class="filter-count">4</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="citizen" onchange="filterWatches()"> Citizen</span>
+                <span class="filter-count">1</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="omega" onchange="filterWatches()"> Omega</span>
+                <span class="filter-count">1</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="brand" value="eterna" onchange="filterWatches()"> Eterna</span>
+                <span class="filter-count">1</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-title">
+            <span>Era / Decade</span>
+          </div>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="era" value="1960" checked onchange="filterWatches()"> 1960s Classics</span>
+                <span class="filter-count">7</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="era" value="1970" checked onchange="filterWatches()"> 1970s Design</span>
+                <span class="filter-count">4</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="checkbox" name="era" value="1990" checked onchange="filterWatches()"> 1990s Neo-Vintage</span>
+                <span class="filter-count">1</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+
+        <div class="filter-group">
+          <div class="filter-title">
+            <span>Price Range</span>
+          </div>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="priceRange" value="all" checked onchange="filterWatches()"> All Budgets</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="priceRange" value="under500" onchange="filterWatches()"> Under € 500</span>
+              </label>
+            </li>
+            <li class="filter-item">
+              <label>
+                <span><input type="radio" name="priceRange" value="above500" onchange="filterWatches()"> € 500 and above</span>
+              </label>
+            </li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- Main Catalog Results -->
+      <section class="catalog-main">
+        <div class="catalog-toolbar">
+          <div class="catalog-count-text">
+            Showing <strong id="item-count">12</strong> watches
+          </div>
+          <div class="catalog-sort">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select" onchange="sortWatches()">
+              <option value="featured">Featured / Newest</option>
+              <option value="price-asc">Price: Low to High</option>
+              <option value="price-desc">Price: High to Low</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Watch Cards Grid -->
+        <div class="watch-grid" id="watch-grid">
+
+          <!-- 1. Citizen Date Flake (Available) -->
+          <article class="watch-card" data-brand="citizen" data-status="available" data-era="1960" data-price="340">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <span class="badge-service">Serviced 10/2026</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_1.webp" alt="Citizen Date Flake cal.2710, 1966" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Citizen &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Citizen Date Flake cal.2710, 1966</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Hand Wound</span>
+                <span class="watch-spec-tag">38 mm</span>
+                <span class="watch-spec-tag">1966</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 340.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Longines Ultra-Chron (Sold Out) -->
+          <article class="watch-card sold-out" data-brand="longines" data-status="sold" data-era="1960" data-price="790">
+            <span class="watch-card-badge badge-soldout">Sold Out</span>
+            <span class="badge-service">Serviced 10/2026</span>
+            <a href="product-soldout.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_2.webp" alt="Longines Ultra-Chron Automatic 7827, 1967" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Longines &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-soldout.html">Longines Ultra-Chron Automatic 7827, 1967</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Hi-Beat 36,000 bph</span>
+                <span class="watch-spec-tag">Cal. 431</span>
+                <span class="watch-spec-tag">1967</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 790.00</span>
+                <a href="product-soldout.html" class="watch-card-btn">
+                  <span>Archive Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 3. Longines Admiral Automatic 8336, 1969 -->
+          <article class="watch-card" data-brand="longines" data-status="available" data-era="1960" data-price="630">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_3.webp" alt="Longines Admiral Automatic 8336, 1969" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Longines &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Longines Admiral Automatic 8336, 1969</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Automatic</span>
+                <span class="watch-spec-tag">35 mm</span>
+                <span class="watch-spec-tag">1969</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 630.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 4. Omega Genève 135.041, 1969 (Sold Out) -->
+          <article class="watch-card sold-out" data-brand="omega" data-status="sold" data-era="1960" data-price="690">
+            <span class="watch-card-badge badge-soldout">Sold Out</span>
+            <a href="product-soldout.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_4.webp" alt="Omega Genève 135.041, 1969" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Omega &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-soldout.html">Omega Genève 135.041, 1969</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Calibre 601</span>
+                <span class="watch-spec-tag">Hand Wound</span>
+                <span class="watch-spec-tag">1969</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 690.00</span>
+                <a href="product-soldout.html" class="watch-card-btn">
+                  <span>Archive Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 5. Seiko LM Special 5216-6040, 1973 -->
+          <article class="watch-card" data-brand="seiko" data-status="available" data-era="1970" data-price="520">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_5.webp" alt="Seiko LM Special 5216-6040, 1973" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Seiko &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Seiko LM Special 5216-6040, 1973</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Calibre 5216 Special</span>
+                <span class="watch-spec-tag">Automatic</span>
+                <span class="watch-spec-tag">1973</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 520.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 6. Seiko LM 5606-8010, 1970 -->
+          <article class="watch-card" data-brand="seiko" data-status="available" data-era="1970" data-price="350">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_6.webp" alt="Seiko LM 5606-8010, 1970" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Seiko &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Seiko LM 5606-8010, 1970</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Calibre 5606</span>
+                <span class="watch-spec-tag">Lord Matic</span>
+                <span class="watch-spec-tag">1970</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 350.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 7. Seiko Seikomatic Weekdater 6206-8990, 1964 -->
+          <article class="watch-card" data-brand="seiko" data-status="available" data-era="1960" data-price="420">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_7.webp" alt="Seiko Seikomatic Weekdater 6206-8990, 1964" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Seiko &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Seiko Seikomatic Weekdater 6206-8990, 1964</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Automatic 26j</span>
+                <span class="watch-spec-tag">Weekdater</span>
+                <span class="watch-spec-tag">1964</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 420.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 8. Seiko Presmatic Hi-Beat 5146-7090, 1970 -->
+          <article class="watch-card" data-brand="seiko" data-status="available" data-era="1970" data-price="390">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_8.webp" alt="Seiko Presmatic Hi-Beat 5146-7090, 1970" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Seiko &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Seiko Presmatic Hi-Beat 5146-7090, 1970</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Presmatic Crown</span>
+                <span class="watch-spec-tag">Hi-Beat</span>
+                <span class="watch-spec-tag">1970</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 390.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 9. Seiko Seikomatic Weekdater 6206-8040, 1966 (Sold Out) -->
+          <article class="watch-card sold-out" data-brand="seiko" data-status="sold" data-era="1960" data-price="390">
+            <span class="watch-card-badge badge-soldout">Sold Out</span>
+            <a href="product-soldout.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_9.webp" alt="Seiko Seikomatic Weekdater 6206-8040, 1966" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Seiko &bull; Japan</span>
+              <h2 class="watch-card-title"><a href="product-soldout.html">Seiko Seikomatic Weekdater 6206-8040, 1966</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Weekdater</span>
+                <span class="watch-spec-tag">Silver Sunburst</span>
+                <span class="watch-spec-tag">1966</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 390.00</span>
+                <a href="product-soldout.html" class="watch-card-btn">
+                  <span>Archive Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 10. Eterna Kontiki 1100 41, ca 1990 -->
+          <article class="watch-card" data-brand="eterna" data-status="available" data-era="1990" data-price="590">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_10.webp" alt="Eterna Kontiki 1100 41, ca 1990" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Eterna &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Eterna Kontiki 1100 41, ca 1990</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Diver Icon</span>
+                <span class="watch-spec-tag">Automatic</span>
+                <span class="watch-spec-tag">ca 1990</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 590.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 11. Longines Admiral Automatic 8340, 1969 -->
+          <article class="watch-card" data-brand="longines" data-status="available" data-era="1960" data-price="590">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_11.webp" alt="Longines Admiral Automatic 8340, 1969" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Longines &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Longines Admiral Automatic 8340, 1969</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Calibre 505</span>
+                <span class="watch-spec-tag">Stainless Steel</span>
+                <span class="watch-spec-tag">1969</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 590.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- 12. Longines Automatic 4120 cal. L645.1, 1979 -->
+          <article class="watch-card" data-brand="longines" data-status="available" data-era="1970" data-price="490">
+            <span class="watch-card-badge badge-available">In Stock</span>
+            <a href="product-available.html" class="watch-card-img-wrap">
+              <img src="assets/watches/watch_12.webp" alt="Longines Automatic 4120 cal. L645.1, 1979" class="watch-card-img" loading="lazy">
+            </a>
+            <div class="watch-card-body">
+              <span class="watch-card-brand">Longines &bull; Swiss</span>
+              <h2 class="watch-card-title"><a href="product-available.html">Longines Automatic 4120 cal. L645.1, 1979</a></h2>
+              <div class="watch-card-specs">
+                <span class="watch-spec-tag">Calibre L645.1</span>
+                <span class="watch-spec-tag">Dress Watch</span>
+                <span class="watch-spec-tag">1979</span>
+              </div>
+              <div class="watch-card-footer">
+                <span class="watch-card-price">€ 490.00</span>
+                <a href="product-available.html" class="watch-card-btn">
+                  <span>View Details</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- Clean Pagination -->
+        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+          <span style="width: 36px; height: 36px; border-radius: 50%; background: var(--color-brand-blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px;">1</span>
+          <a href="#" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; color: var(--color-text-main);">2</a>
+          <a href="#" style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; color: var(--color-text-main);">3</a>
+          <a href="#" style="padding: 0 16px; height: 36px; border-radius: 999px; border: 1px solid var(--color-border); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px; color: var(--color-text-main);">Next &rarr;</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <div class="brand-group" style="margin-bottom: 12px;">
+          <img src="assets/logo.webp" alt="Watch &amp; Vintage" style="height: 38px; filter: brightness(0) invert(1);">
+          <div class="brand-titles">
+            <span class="brand-name" style="color: #ffffff; font-size: 18px;">WATCH &amp; VINTAGE</span>
+            <span class="brand-sub" style="color: var(--color-gold);">Le Vingtième Siècle</span>
+          </div>
+        </div>
+        <p class="footer-brand-p">
+          Online boutique for serviced and guaranteed vintage watches from the 50s to the 80s. Specializing in Seiko, Citizen, Longines and Omega.
+        </p>
+        <div style="margin-top: 16px; font-size: 13px; color: #94a3b8;">
+          David Broglin E.I. • SIRET 750 333 122 00026<br>
+          68510 — FRANCE • contact@watchandvintage.fr
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Collections</h4>
+        <ul class="footer-links">
+          <li><a href="catalog.html">All Vintage Watches</a></li>
+          <li><a href="catalog.html?brand=seiko">Seiko Vintage</a></li>
+          <li><a href="catalog.html?brand=longines">Longines Heritage</a></li>
+          <li><a href="catalog.html?brand=citizen">Citizen Mechanical</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Guarantee</h4>
+        <ul class="footer-links">
+          <li><a href="index.html#about">1-Year Guarantee</a></li>
+          <li><a href="index.html#reviews">Chrono24 Reviews (480)</a></li>
+          <li><a href="cart.html">Worldwide Insured Shipping</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Chrono24 Trusted Seller</h4>
+        <p style="font-size: 13px; color: #94a3b8; line-height: 1.6;">
+          ★★★★★ 5.0 / 5 stars across 480 verified transactions. 100% positive feedback.
+        </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Watch &amp; Vintage (Le Vingtième Siècle) • David Broglin E.I.</span>
+      <span>Proposition de refonte</span>
+    </div>
+  </footer>
+
+  <script>
+    function handleAllBrand(cb) {
+      const brandCbs = document.querySelectorAll('input[name="brand"]:not([value="all"])');
+      if (cb.checked) {
+        brandCbs.forEach(b => b.checked = false);
+      }
+      filterWatches();
+    }
+
+    function filterWatches() {
+      const avail = document.querySelector('input[name="availability"]:checked').value;
+      const allBrandCb = document.querySelector('input[name="brand"][value="all"]');
+      const selectedBrands = Array.from(document.querySelectorAll('input[name="brand"]:not([value="all"]):checked')).map(c => c.value);
+      if (selectedBrands.length > 0 && allBrandCb) {
+        allBrandCb.checked = false;
+      }
+      const selectedEras = Array.from(document.querySelectorAll('input[name="era"]:checked')).map(c => c.value);
+      const priceRange = document.querySelector('input[name="priceRange"]:checked').value;
+      const search = document.getElementById('search-input')?.value.toLowerCase() || '';
+
+      const cards = document.querySelectorAll('.watch-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cardStatus = card.dataset.status;
+        const cardBrand = card.dataset.brand;
+        const cardEra = card.dataset.era;
+        const cardPrice = parseFloat(card.dataset.price);
+        const cardTitle = card.querySelector('.watch-card-title').innerText.toLowerCase();
+
+        let show = true;
+
+        if (avail === 'available' && cardStatus !== 'available') show = false;
+        if (avail === 'sold' && cardStatus !== 'sold') show = false;
+
+        if (selectedBrands.length > 0 && !selectedBrands.includes(cardBrand)) show = false;
+        if (selectedEras.length > 0 && !selectedEras.includes(cardEra)) show = false;
+
+        if (priceRange === 'under500' && cardPrice >= 500) show = false;
+        if (priceRange === 'above500' && cardPrice < 500) show = false;
+
+        if (search && !cardTitle.includes(search)) show = false;
+
+        card.style.display = show ? 'flex' : 'none';
+        if (show) visibleCount++;
+      });
+
+      document.getElementById('item-count').innerText = visibleCount;
+      const mCount = document.getElementById('mobile-item-count');
+      if (mCount) mCount.innerText = visibleCount;
+    }
+
+    function toggleMobileSidebar() {
+      const sidebar = document.querySelector('.catalog-sidebar');
+      const btn = document.getElementById('mobile-filter-toggle-btn');
+      if (!sidebar) return;
+      const isOpen = sidebar.classList.toggle('is-open');
+      if (btn) {
+        btn.classList.toggle('is-active', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    }
+
+    function applyQuickFilter(type, btn) {
+      document.querySelectorAll('.quick-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const availRadios = document.querySelectorAll('input[name="availability"]');
+      const allBrandCb = document.querySelector('input[name="brand"][value="all"]');
+      const brandCbs = document.querySelectorAll('input[name="brand"]:not([value="all"])');
+
+      if (type === 'all') {
+        availRadios.forEach(r => r.checked = (r.value === 'all'));
+        if (allBrandCb) allBrandCb.checked = true;
+        brandCbs.forEach(b => b.checked = false);
+      } else if (type === 'available') {
+        availRadios.forEach(r => r.checked = (r.value === 'available'));
+        if (allBrandCb) allBrandCb.checked = true;
+        brandCbs.forEach(b => b.checked = false);
+      } else if (type === 'seiko' || type === 'longines') {
+        availRadios.forEach(r => r.checked = (r.value === 'all'));
+        if (allBrandCb) allBrandCb.checked = false;
+        brandCbs.forEach(b => b.checked = (b.value === type));
+      }
+      filterWatches();
+    }
+
+    function sortWatches() {
+      const grid = document.getElementById('watch-grid');
+      const cards = Array.from(grid.querySelectorAll('.watch-card'));
+      const sortVal = document.getElementById('sort-select').value;
+
+      cards.sort((a, b) => {
+        const priceA = parseFloat(a.dataset.price);
+        const priceB = parseFloat(b.dataset.price);
+        if (sortVal === 'price-asc') return priceA - priceB;
+        if (sortVal === 'price-desc') return priceB - priceA;
+        return 0;
+      });
+
+      cards.forEach(c => grid.appendChild(c));
+    }
+
+    document.getElementById('search-input')?.addEventListener('input', filterWatches);
+  </script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -13,23 +13,36 @@ const MIME_TYPES = {
   '.jpeg': 'image/jpeg',
   '.webp': 'image/webp',
   '.svg': 'image/svg+xml',
+  '.ico': 'image/x-icon',
   '.woff': 'font/woff',
-  '.woff2': 'font/woff2'
+  '.woff2': 'font/woff2',
+  '.ttf': 'font/ttf'
 };
 
-const server = http.createServer((req, res) => {
+function handleRequest(req, res) {
   let reqPath = decodeURI(req.url.split('?')[0]);
 
-  // Root goes directly to presentation
+  // Root serves index.html (Boutique refondue)
   if (reqPath === '/' || reqPath === '') {
-    reqPath = '/presentation/index.html';
+    reqPath = '/index.html';
   }
 
   let filePath = path.join(ROOT_DIR, reqPath);
 
-  // If path is a directory, serve its index.html
+  // If path is a directory: ensure trailing slash, then serve index.html
   if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) {
+    if (!req.url.split('?')[0].endsWith('/')) {
+      const query = req.url.includes('?') ? '?' + req.url.split('?')[1] : '';
+      res.writeHead(302, { 'Location': req.url.split('?')[0] + '/' + query });
+      res.end();
+      return;
+    }
     filePath = path.join(filePath, 'index.html');
+  }
+
+  // Support clean URLs (/catalog -> /catalog.html)
+  if (!fs.existsSync(filePath) && fs.existsSync(filePath + '.html')) {
+    filePath = filePath + '.html';
   }
 
   // Fallback checks inside presentation/ or redesign/
@@ -50,6 +63,7 @@ const server = http.createServer((req, res) => {
 
   // Security headers & anti-indexation
   res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   fs.stat(filePath, (err, stats) => {
     if (err || !stats.isFile()) {
@@ -64,29 +78,49 @@ const server = http.createServer((req, res) => {
     res.writeHead(200, { 'Content-Type': contentType });
     fs.createReadStream(filePath).pipe(res);
   });
-});
+}
 
-let currentPort = parseInt(process.env.PORT, 10) || 4000;
+const primaryServer = http.createServer(handleRequest);
+let primaryPort = parseInt(process.env.PORT, 10) || 4000;
 
-function listen(port) {
-  server.listen(port, () => {
+function startPrimaryServer(port) {
+  primaryServer.listen(port, () => {
     console.log(`\n===============================================================`);
     console.log(`  ✓ Serveur local Watch & Vintage démarré avec succès !`);
     console.log(`  -------------------------------------------------------------`);
-    console.log(`  ➜ Page de Présentation : http://localhost:${port}/`);
-    console.log(`  ➜ Boutique Refondue     : http://localhost:${port}/redesign/`);
+    console.log(`  ➜ Boutique (Site Principal) : http://localhost:${port}/`);
+    console.log(`  ➜ Présentation Avant / Après: http://localhost:${port}/presentation/`);
     console.log(`===============================================================\n`);
+
+    // If on port 4000, also try to bind port 3000 as convenience if free
+    if (port === 4000 && !process.env.PORT) {
+      tryBindSecondary(3000);
+    } else if (port === 3000 && !process.env.PORT) {
+      tryBindSecondary(4000);
+    }
   });
 }
 
-server.on('error', (err) => {
+function tryBindSecondary(port) {
+  const secondary = http.createServer(handleRequest);
+  secondary.listen(port, () => {
+    console.log(`  [+] Port additionnel ${port} également actif : http://localhost:${port}/`);
+  });
+  secondary.on('error', () => {
+    // Port busy, ignore silently
+  });
+}
+
+primaryServer.on('error', (err) => {
   if (err.code === 'EADDRINUSE') {
-    console.warn(`! Le port ${currentPort} est déjà occupé. Tentative sur le port ${currentPort + 1}...`);
-    currentPort += 1;
-    setTimeout(() => listen(currentPort), 150);
+    console.warn(`! Le port ${primaryPort} est déjà occupé. Tentative sur le port ${primaryPort + 1}...`);
+    primaryPort += 1;
+    setTimeout(() => startPrimaryServer(primaryPort), 150);
   } else {
     console.error('Erreur serveur :', err.message);
   }
 });
 
-listen(currentPort);
+startPrimaryServer(primaryPort);
+
+module.exports = primaryServer;

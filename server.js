@@ -1,2 +1,2 @@
 // Watch & Vintage - Serveur local (point d'entrée racine)
-require('./scripts/server.js');
+module.exports = require('./scripts/server.js');

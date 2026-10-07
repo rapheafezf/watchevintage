@@ -1,94 +1,462 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=presentation/index.html">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Watch &amp; Vintage — Refonte Haute Horlogerie</title>
-  <meta name="robots" content="noindex, nofollow">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: #11161b;
-      color: #ffffff;
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    .portal-box {
-      background: #182026;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 16px;
-      padding: 40px 32px;
-      max-width: 520px;
-      margin: 20px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
-    h1 {
-      font-family: 'Playfair Display', Georgia, serif;
-      font-size: 26px;
-      margin-bottom: 12px;
-      letter-spacing: 0.04em;
-    }
-    p {
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .btn-group {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-    .btn-gold {
-      background: #bfa15f;
-      color: #11161b;
-    }
-    .btn-gold:hover {
-      background: #d4af37;
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #ffffff;
-    }
-    .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.05);
-      border-color: #ffffff;
-    }
-  </style>
-  <script>
-    window.location.href = "presentation/index.html";
-  </script>
+  <title>Watch & Vintage | Serviced & Guaranteed Vintage Watches</title>
+  <meta name="description" content="Online boutique for serviced and guaranteed vintage watches from the 1950s to the 1980s. Seiko, Citizen, Longines, Omega. 1-year warranty, Chrono24 Trusted Seller 5.0/5.">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="portal-box">
-    <h1>WATCH &amp; VINTAGE</h1>
-    <p>Redirection vers la présentation interactive Avant / Après de la refonte...</p>
-    <div class="btn-group">
-      <a href="presentation/index.html" class="btn btn-gold">Accéder à la Présentation Avant / Après ➔</a>
-      <a href="redesign/index.html" class="btn btn-outline">Explorer la Boutique Démo en Direct ↗</a>
+
+  <!-- Floating Proposal Badge -->
+  <a href="presentation/index.html" class="proposal-badge-fixed" title="Voir la présentation comparative Avant / Après">
+    Proposition de refonte
+  </a>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        1-Year Guarantee
+      </span>
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        Worldwide Insured Shipping
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Chrono24 Trusted Seller <strong class="top-bar-badge">5.0 / 5 (480 reviews)</strong>
+      </span>
+      <span class="top-bar-item">EUR (€)</span>
     </div>
   </div>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-group">
+        <img src="assets/logo.webp" alt="Watch &amp; Vintage Logo" class="brand-logo-img">
+        <div class="brand-titles">
+          <span class="brand-name">WATCH &amp; VINTAGE</span>
+          <span class="brand-sub">Serviced Vintage Timepieces</span>
+        </div>
+      </a>
+
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="catalog.html" class="nav-link">Watches</a>
+        <a href="catalog.html?brand=seiko" class="nav-link">Seiko Specialist</a>
+        <a href="catalog.html?brand=longines" class="nav-link">Swiss Classics</a>
+        <a href="#about" class="nav-link">Our Workshop</a>
+        <a href="#reviews" class="nav-link">Reviews</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="header-search">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search calibre, brand...">
+        </div>
+        <a href="cart.html" class="header-cart-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          <span>Bag</span>
+          <span class="cart-count">1</span>
+        </a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-eyebrow">Horlogerie Vintage &bull; Révisée en Atelier</span>
+        <h1 class="hero-title">Authentic vintage watches, <em>overhauled &amp; tested</em> in Alsace.</h1>
+        <p class="hero-lead">
+          Each mechanical watch is carefully chosen, fully disassembled, cleaned with ultrasound, lubricated and timed before sale. Delivered with our 1-year workshop guarantee.
+        </p>
+        <div class="hero-signature">David Broglin — Founder &amp; Horologist</div>
+        <div class="hero-actions">
+          <a href="catalog.html" class="btn-primary">
+            <span>Explore The Collection</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <a href="product-available.html" class="btn-outline">
+            <span>View Featured Piece</span>
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num">480+</div>
+            <div class="hero-stat-desc">Chrono24 Reviews</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">5.0 / 5</div>
+            <div class="hero-stat-desc">Seller Rating</div>
+          </div>
+          <div>
+            <div class="hero-stat-num">1 Year</div>
+            <div class="hero-stat-desc">Mechanical Guarantee</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual with Featured Watch Card -->
+      <div class="hero-visual">
+        <a href="product-available.html" class="hero-watch-card">
+          <img src="assets/watches/watch_1.webp" alt="Citizen Date Flake cal.2710, 1966" class="hero-watch-img">
+          <div class="hero-watch-meta">
+            <div>
+              <span class="hero-watch-tag">Selected Timepiece</span>
+              <h3 class="hero-watch-name">Citizen Date Flake 1966</h3>
+            </div>
+            <span class="hero-watch-price">€ 340.00</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust Highlights Banner -->
+  <section class="trust-banner">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <div>
+          <div class="trust-title">Fully Serviced in Alsace</div>
+          <div class="trust-sub">Disassembled, cleaned &amp; regulated</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="trust-title">1-Year Warranty</div>
+          <div class="trust-sub">Direct guarantee on every piece</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <div class="trust-title">Insured Worldwide Delivery</div>
+          <div class="trust-sub">Tracked and protected packaging</div>
+        </div>
+      </div>
+
+      <div class="trust-item">
+        <div class="trust-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <div class="trust-title">Chrono24 Trusted Seller</div>
+          <div class="trust-sub">5.0 / 5 stars across 480 verified reviews</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curated Collection Highlights -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-eyebrow">Recent Arrivals</span>
+      <h2 class="section-title">Hand-Selected Vintage Watches</h2>
+      <p class="section-subtitle">Real timepieces currently in our inventory or recently curated. Each piece is unique.</p>
+    </div>
+
+    <div class="watch-grid">
+      <!-- Item 1: Citizen Date Flake (Available) -->
+      <article class="watch-card">
+        <span class="watch-card-badge badge-available">In Stock</span>
+        <span class="badge-service">Serviced 10/2026</span>
+        <a href="product-available.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_1.webp" alt="Citizen Date Flake cal.2710, 1966" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Citizen • Japan</span>
+          <h3 class="watch-card-title"><a href="product-available.html">Citizen Date Flake cal.2710, 1966</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Hand Wound</span>
+            <span class="watch-spec-tag">38 mm</span>
+            <span class="watch-spec-tag">1966</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 340.00</span>
+            <a href="product-available.html" class="watch-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 2: Longines Ultra-Chron (Sold Out) -->
+      <article class="watch-card sold-out">
+        <span class="watch-card-badge badge-soldout">Sold Out</span>
+        <span class="badge-service">Serviced 10/2026</span>
+        <a href="product-soldout.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_2.webp" alt="Longines Ultra-Chron Automatic 7827, 1967" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Longines • Swiss</span>
+          <h3 class="watch-card-title"><a href="product-soldout.html">Longines Ultra-Chron Automatic 7827, 1967</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Hi-Beat 36,000 bph</span>
+            <span class="watch-spec-tag">Cal. 431</span>
+            <span class="watch-spec-tag">1967</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 790.00</span>
+            <a href="product-soldout.html" class="watch-card-btn">
+              <span>Archive Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 3: Longines Admiral 8336 (Available) -->
+      <article class="watch-card">
+        <span class="watch-card-badge badge-available">In Stock</span>
+        <a href="catalog.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_3.webp" alt="Longines Admiral Automatic 8336, 1969" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Longines • Swiss</span>
+          <h3 class="watch-card-title"><a href="catalog.html">Longines Admiral Automatic 8336, 1969</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Automatic</span>
+            <span class="watch-spec-tag">35 mm</span>
+            <span class="watch-spec-tag">1969</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 630.00</span>
+            <a href="catalog.html" class="watch-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 4: Seiko LM Special 5216-6040 (Available) -->
+      <article class="watch-card">
+        <span class="watch-card-badge badge-available">In Stock</span>
+        <a href="catalog.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_5.webp" alt="Seiko LM Special 5216-6040, 1973" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Seiko • Japan</span>
+          <h3 class="watch-card-title"><a href="catalog.html">Seiko LM Special 5216-6040, 1973</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Special Calibre 5216</span>
+            <span class="watch-spec-tag">Facetted Crystal</span>
+            <span class="watch-spec-tag">1973</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 520.00</span>
+            <a href="catalog.html" class="watch-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 5: Seiko Seikomatic Weekdater 6206-8990 (Available) -->
+      <article class="watch-card">
+        <span class="watch-card-badge badge-available">In Stock</span>
+        <a href="catalog.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_7.webp" alt="Seiko Seikomatic Weekdater 6206-8990, 1964" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Seiko • Japan</span>
+          <h3 class="watch-card-title"><a href="catalog.html">Seiko Seikomatic Weekdater 6206-8990, 1964</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Automatic 26j</span>
+            <span class="watch-spec-tag">Weekdater</span>
+            <span class="watch-spec-tag">1964</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 420.00</span>
+            <a href="catalog.html" class="watch-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Item 6: Eterna Kontiki 1100 41 (Available) -->
+      <article class="watch-card">
+        <span class="watch-card-badge badge-available">In Stock</span>
+        <a href="catalog.html" class="watch-card-img-wrap">
+          <img src="assets/watches/watch_10.webp" alt="Eterna Kontiki 1100 41, ca 1990" class="watch-card-img" loading="lazy">
+        </a>
+        <div class="watch-card-body">
+          <span class="watch-card-brand">Eterna • Swiss</span>
+          <h3 class="watch-card-title"><a href="catalog.html">Eterna Kontiki 1100 41, ca 1990</a></h3>
+          <div class="watch-card-specs">
+            <span class="watch-spec-tag">Diver Heritage</span>
+            <span class="watch-spec-tag">Steel Case</span>
+            <span class="watch-spec-tag">ca 1990</span>
+          </div>
+          <div class="watch-card-footer">
+            <span class="watch-card-price">€ 590.00</span>
+            <a href="catalog.html" class="watch-card-btn">
+              <span>View Details</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            </a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div style="text-align: center; margin-top: 48px;">
+      <a href="catalog.html" class="btn-primary" style="background: var(--color-dark);">
+        <span>View Full Catalogue (All Watches)</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Chrono24 Trusted Seller Review Strip -->
+  <section class="section" id="reviews" style="padding-top: 0;">
+    <div class="chrono-widget">
+      <div>
+        <div class="chrono-badge-title">Chrono24 Verified Performance</div>
+        <div class="chrono-score-box">
+          <span class="chrono-score-num">5.0</span>
+          <span class="chrono-stars">★★★★★</span>
+          <span class="chrono-review-count">(480 authentic reviews • 100% recommended)</span>
+        </div>
+      </div>
+      <div class="chrono-quote">
+        “Sehr zuverlässiger Händler. Watch arrived in immaculate condition, accurately described and running beautifully. Absolute recommendation for vintage collectors.”
+      </div>
+    </div>
+  </section>
+
+  <!-- Workshop & Founder Story -->
+  <section class="section" id="about" style="background: #ffffff; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border);">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+      <div>
+        <span class="section-eyebrow">The Workshop In Alsace</span>
+        <h2 class="section-title">Preserving the mechanical heritage of the 20th century</h2>
+        <p style="font-size: 15px; color: var(--color-text-muted); margin-top: 18px; line-height: 1.8;">
+          Founded by David Broglin (Le Vingtième Siècle), Watch &amp; Vintage is dedicated to reviving exceptional vintage timepieces from the golden era of watchmaking — the 1950s through the 1980s.
+        </p>
+        <p style="font-size: 15px; color: var(--color-text-muted); margin-top: 14px; line-height: 1.8;">
+          Every watch acquired passes through comprehensive inspection: movements are disassembled, cleaned, relubricated, regulated on timegraphers, and tested for amplitude. Crystals and bands are carefully replaced when appropriate, preserving original dials and authentic patinas.
+        </p>
+        <div style="margin-top: 24px;" class="horologist-note-box">
+          <div class="horologist-note-title">Workshop Philosophy</div>
+          <div class="horologist-note-text">“A vintage watch is a living piece of mechanical history that deserves to be worn with total confidence.”</div>
+        </div>
+      </div>
+      <div style="background: #fbfaf8; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 32px;">
+        <h3 style="font-family: var(--font-serif); font-size: 20px; margin-bottom: 16px;">Workshop Standards</h3>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 14px; color: var(--color-text-main);">
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d677e" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>100% Genuine Timepieces:</strong> Authentic parts, honest condition reports and high-resolution photos.</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d677e" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Systematic Technical Service:</strong> Ultrasonic movement cleaning, Moebius synthetic oils and precision regulation.</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d677e" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>1-Year Written Guarantee:</strong> Complete mechanical coverage directly handled in workshop.</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d677e" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Careful &amp; Insured Shipping:</strong> Dedicated protective packaging and full insurance value to your doorstep.</span>
+          </li>
+          <li style="display: flex; gap: 12px; align-items: start;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3d677e" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span><strong>Direct Contact with David:</strong> Speak directly with the horologist for any questions or sourcing request.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <div class="brand-group" style="margin-bottom: 12px;">
+          <img src="assets/logo.webp" alt="Watch &amp; Vintage" style="height: 38px; filter: brightness(0) invert(1);">
+          <div class="brand-titles">
+            <span class="brand-name" style="color: #ffffff; font-size: 18px;">WATCH &amp; VINTAGE</span>
+            <span class="brand-sub" style="color: var(--color-gold);">Le Vingtième Siècle</span>
+          </div>
+        </div>
+        <p class="footer-brand-p">
+          Online boutique for serviced and guaranteed vintage watches from the 50s to the 80s. Specializing in Seiko, Citizen, Longines and Omega.
+        </p>
+        <div style="margin-top: 16px; font-size: 13px; color: #94a3b8;">
+          David Broglin E.I. • SIRET 750 333 122 00026<br>
+          68510 — FRANCE • contact@watchandvintage.fr
+        </div>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Collections</h4>
+        <ul class="footer-links">
+          <li><a href="catalog.html">All Vintage Watches</a></li>
+          <li><a href="catalog.html?brand=seiko">Seiko Vintage</a></li>
+          <li><a href="catalog.html?brand=longines">Longines Heritage</a></li>
+          <li><a href="catalog.html?brand=citizen">Citizen Mechanical</a></li>
+          <li><a href="catalog.html?status=sold">Archived / Sold Out</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Information</h4>
+        <ul class="footer-links">
+          <li><a href="#about">The Workshop</a></li>
+          <li><a href="#reviews">Chrono24 Reviews (480)</a></li>
+          <li><a href="catalog.html">1-Year Warranty Policy</a></li>
+          <li><a href="cart.html">Worldwide Insured Shipping</a></li>
+          <li><a href="#about">Legal Notice &amp; Terms</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-heading">Accepted Payments</h4>
+        <p style="font-size: 13px; color: #94a3b8; line-height: 1.6; margin-bottom: 14px;">
+          MasterCard, Visa, American Express, PayPal, Bank Transfer, Giropay, Maestro. 100% encrypted SSL checkout.
+        </p>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap; opacity: 0.85;">
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 11px;">VISA</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 11px;">MASTERCARD</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 11px;">PAYPAL</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 11px;">AMEX</span>
+          <span style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px; font-size: 11px;">APPLE PAY</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Watch &amp; Vintage (Le Vingtième Siècle) • David Broglin E.I.</span>
+      <span>Proposition de refonte</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
