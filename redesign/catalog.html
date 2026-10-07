@@ -19,7 +19,7 @@
     <div class="top-bar-left">
       <span class="top-bar-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        1-Year Mechanical Guarantee
+        1-Year Guarantee
       </span>
       <span class="top-bar-item">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
@@ -37,7 +37,7 @@
   <!-- Site Header -->
   <header class="site-header">
     <div class="header-container">
-      <a href="index.html" class="brand-group">
+      <a href="index.html" class="brand-group" aria-label="Watch &amp; Vintage">
         <img src="assets/logo.webp" alt="Watch &amp; Vintage Logo" class="brand-logo-img">
         <div class="brand-titles">
           <span class="brand-name">WATCH &amp; VINTAGE</span>
@@ -64,18 +64,41 @@
           <span>Bag</span>
           <span class="cart-count">1</span>
         </a>
+        <button class="mobile-nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
 
   <!-- Catalog Section -->
   <main class="section">
-    <div style="margin-bottom: 32px;">
+    <div style="margin-bottom: 24px;">
       <span class="section-eyebrow">Catalogue &bull; Timepieces Collection</span>
       <h1 class="section-title">All Vintage Watches</h1>
       <p style="color: var(--color-text-muted); font-size: 15px; margin-top: 8px;">
         Every piece has been checked, overhauled, regulated, and is backed by our 1-year guarantee.
       </p>
+    </div>
+
+    <!-- Mobile Filter Controls -->
+    <div class="catalog-mobile-controls">
+      <div class="mobile-filter-bar">
+        <button type="button" class="mobile-filter-toggle-btn" id="mobile-filter-toggle-btn" aria-expanded="false" onclick="toggleMobileSidebar()">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+          <span>Filters &amp; Refine</span>
+          <svg class="chevron-filter" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div style="font-size: 13px; color: var(--color-text-muted);">
+          <strong id="mobile-item-count" style="color: var(--color-dark);">12</strong> timepieces
+        </div>
+      </div>
+      <div class="mobile-chips-row">
+        <button type="button" class="quick-chip active" data-filter="all" onclick="applyQuickFilter('all', this)">All (12)</button>
+        <button type="button" class="quick-chip" data-filter="available" onclick="applyQuickFilter('available', this)">Available (8)</button>
+        <button type="button" class="quick-chip" data-filter="seiko" onclick="applyQuickFilter('seiko', this)">Seiko (5)</button>
+        <button type="button" class="quick-chip" data-filter="longines" onclick="applyQuickFilter('longines', this)">Longines (4)</button>
+      </div>
     </div>
 
     <div class="catalog-layout">
@@ -622,6 +645,43 @@
       });
 
       document.getElementById('item-count').innerText = visibleCount;
+      const mCount = document.getElementById('mobile-item-count');
+      if (mCount) mCount.innerText = visibleCount;
+    }
+
+    function toggleMobileSidebar() {
+      const sidebar = document.querySelector('.catalog-sidebar');
+      const btn = document.getElementById('mobile-filter-toggle-btn');
+      if (!sidebar) return;
+      const isOpen = sidebar.classList.toggle('is-open');
+      if (btn) {
+        btn.classList.toggle('is-active', isOpen);
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      }
+    }
+
+    function applyQuickFilter(type, btn) {
+      document.querySelectorAll('.quick-chip').forEach(c => c.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+
+      const availRadios = document.querySelectorAll('input[name="availability"]');
+      const allBrandCb = document.querySelector('input[name="brand"][value="all"]');
+      const brandCbs = document.querySelectorAll('input[name="brand"]:not([value="all"])');
+
+      if (type === 'all') {
+        availRadios.forEach(r => r.checked = (r.value === 'all'));
+        if (allBrandCb) allBrandCb.checked = true;
+        brandCbs.forEach(b => b.checked = false);
+      } else if (type === 'available') {
+        availRadios.forEach(r => r.checked = (r.value === 'available'));
+        if (allBrandCb) allBrandCb.checked = true;
+        brandCbs.forEach(b => b.checked = false);
+      } else if (type === 'seiko' || type === 'longines') {
+        availRadios.forEach(r => r.checked = (r.value === 'all'));
+        if (allBrandCb) allBrandCb.checked = false;
+        brandCbs.forEach(b => b.checked = (b.value === type));
+      }
+      filterWatches();
     }
 
     function sortWatches() {

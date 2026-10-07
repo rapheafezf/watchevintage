@@ -161,39 +161,43 @@ button {
 .header-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 18px 32px;
+  padding: 16px 32px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 .brand-group {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+  text-decoration: none;
+  flex-shrink: 0;
 }
 .brand-logo-img {
-  height: 46px;
+  height: 42px;
   width: auto;
+  max-width: 180px;
   object-fit: contain;
+  display: block;
 }
 .brand-titles {
   display: flex;
   flex-direction: column;
+  border-left: 1px solid var(--color-border);
+  padding-left: 12px;
+  margin-left: 2px;
 }
 .brand-name {
-  font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  color: var(--color-dark);
-  line-height: 1.1;
+  display: none; /* Logo image already contains "WATCH & VINTAGE" */
 }
 .brand-sub {
-  font-size: 11px;
+  font-size: 10px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--color-brand-blue);
   font-weight: 600;
+  white-space: nowrap;
 }
 
 .site-nav {
@@ -572,6 +576,9 @@ button {
 }
 
 /* --- CATALOG FILTERS --- */
+.catalog-mobile-controls {
+  display: none;
+}
 .catalog-layout {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -1350,6 +1357,9 @@ button {
 
 /* --- RESPONSIVE STYLES (1440, 820, 390) --- */
 @media (max-width: 1024px) {
+  .brand-titles {
+    display: none !important;
+  }
   .hero-container {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -1358,7 +1368,81 @@ button {
     grid-template-columns: 1fr;
   }
   .catalog-sidebar {
+    display: none;
+    margin-bottom: 24px;
     position: static;
+  }
+  .catalog-sidebar.is-open {
+    display: block;
+    animation: fadeIn 0.25s ease;
+  }
+  .catalog-mobile-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .mobile-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .mobile-filter-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-dark);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+  }
+  .mobile-filter-toggle-btn:hover {
+    border-color: var(--color-brand-blue);
+  }
+  .mobile-filter-toggle-btn svg {
+    color: var(--color-brand-blue);
+  }
+  .mobile-filter-toggle-btn .chevron-filter {
+    color: var(--color-text-muted);
+    transition: transform 0.2s ease;
+  }
+  .mobile-filter-toggle-btn.is-active .chevron-filter {
+    transform: rotate(180deg);
+  }
+  .mobile-chips-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .mobile-chips-row::-webkit-scrollbar {
+    display: none;
+  }
+  .quick-chip {
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    white-space: nowrap;
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border-subtle);
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  .quick-chip.active {
+    background: var(--color-brand-blue);
+    color: #ffffff;
+    border-color: var(--color-brand-blue);
   }
   .watch-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -1378,9 +1462,93 @@ button {
 }
 
 @media (max-width: 768px) {
+  .top-bar {
+    padding: 7px 12px;
+    justify-content: center;
+  }
   .top-bar-right {
     display: none;
   }
+  .top-bar-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+  .top-bar-item {
+    font-size: 11px;
+    white-space: nowrap;
+    gap: 5px;
+  }
+  .top-bar-item svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+  }
+
+  .header-container {
+    padding: 10px 16px;
+    gap: 10px;
+  }
+  .brand-logo-img {
+    height: 34px;
+    max-width: 135px;
+  }
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .header-cart-btn {
+    padding: 7px 12px;
+    font-size: 12px;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .cart-count {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+  .mobile-nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-subtle);
+    border: 1px solid var(--color-border);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .mobile-nav-toggle span {
+    width: 18px;
+    height: 2px;
+    background-color: var(--color-dark);
+    border-radius: 1px;
+    transition: var(--transition);
+  }
+
+  .proposal-badge-fixed {
+    bottom: 12px;
+    right: 12px;
+    padding: 5px 11px;
+    font-size: 9.5px;
+    letter-spacing: 0.04em;
+    opacity: 0.9;
+  }
+  .proposal-badge-fixed::before {
+    width: 6px;
+    height: 6px;
+  }
+
   .site-nav {
     display: none;
   }
@@ -1406,12 +1574,7 @@ button {
   .header-search {
     display: none;
   }
-  .mobile-nav-toggle {
-    display: flex;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-  }
+
   .hero {
     padding: 50px 20px 60px;
   }
@@ -1449,6 +1612,38 @@ button {
     padding-top: 16px;
   }
   .section {
-    padding: 50px 20px;
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 420px) {
+  .top-bar {
+    padding: 6px 8px;
+  }
+  .top-bar-left {
+    gap: 8px;
+  }
+  .top-bar-item {
+    font-size: 10px;
+    gap: 4px;
+  }
+  .top-bar-item svg {
+    width: 11px;
+    height: 11px;
+  }
+  .brand-logo-img {
+    height: 30px;
+    max-width: 120px;
+  }
+  .header-container {
+    padding: 8px 12px;
+  }
+  .header-actions {
+    gap: 8px;
+  }
+  .header-cart-btn {
+    padding: 6px 10px;
+    font-size: 11px;
+    gap: 4px;
   }
 }
