@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Secure Checkout | Watch &amp; Vintage</title>
+  <meta name="description" content="Secure checkout for your vintage timepiece. Worldwide insured shipping and 1-year mechanical guarantee.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Floating Proposal Badge -->
+  <div class="proposal-badge-fixed">
+    Proposition de refonte
+  </div>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <span class="top-bar-item">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        256-Bit SSL Encrypted &bull; Direct Horologist Contact: contact@watchandvintage.fr
+      </span>
+    </div>
+    <div class="top-bar-right">
+      <span class="top-bar-item">Chrono24 Trusted Seller 5.0 / 5 (480 reviews)</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-group">
+        <img src="assets/logo.webp" alt="Watch &amp; Vintage Logo" class="brand-logo-img">
+        <div class="brand-titles">
+          <span class="brand-name">WATCH &amp; VINTAGE</span>
+          <span class="brand-sub">Serviced Vintage Timepieces</span>
+        </div>
+      </a>
+
+      <div style="font-size: 13px; font-weight: 600; color: var(--color-brand-blue); display: flex; align-items: center; gap: 8px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Guaranteed Authentic &bull; 1-Year Mechanical Guarantee
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Tunnel Main -->
+  <main class="section">
+    <div class="tunnel-layout">
+      <!-- Checkout Form Column -->
+      <div class="tunnel-main">
+        <!-- Tunnel Steps Bar -->
+        <div class="tunnel-steps-nav">
+          <div class="tunnel-step-item completed">
+            <span class="tunnel-step-num">&#10003;</span>
+            <span>Bag</span>
+          </div>
+          <div class="tunnel-step-item active">
+            <span class="tunnel-step-num">2</span>
+            <span>Customer &amp; Delivery</span>
+          </div>
+          <div class="tunnel-step-item">
+            <span class="tunnel-step-num">3</span>
+            <span>Payment</span>
+          </div>
+        </div>
+
+        <form onsubmit="event.preventDefault(); document.getElementById('demo-modal').style.display='flex';">
+          <!-- Contact Details -->
+          <div style="margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-serif); font-size: 20px; color: var(--color-dark); margin-bottom: 16px;">1. Contact &amp; Delivery Address</h2>
+            <div class="form-grid">
+              <div class="form-group-full">
+                <label class="form-label" for="email">Email Address (for order tracking &amp; guarantee dossier)</label>
+                <input class="form-input" type="email" id="email" value="collector@example.com" required>
+              </div>
+              <div>
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" type="text" id="fname" value="Jean" required>
+              </div>
+              <div>
+                <label class="form-label" for="lname">Last Name</label>
+                <input class="form-input" type="text" id="lname" value="Dupont" required>
+              </div>
+              <div class="form-group-full">
+                <label class="form-label" for="address">Street Address</label>
+                <input class="form-input" type="text" id="address" value="12 rue de la Paix" required>
+              </div>
+              <div>
+                <label class="form-label" for="postal">Postal Code</label>
+                <input class="form-input" type="text" id="postal" value="75002" required>
+              </div>
+              <div>
+                <label class="form-label" for="city">City</label>
+                <input class="form-input" type="text" id="city" value="Paris" required>
+              </div>
+              <div class="form-group-full">
+                <label class="form-label" for="country">Country</label>
+                <select class="form-input" id="country">
+                  <option selected>France</option>
+                  <option>Germany</option>
+                  <option>Italy</option>
+                  <option>United Kingdom</option>
+                  <option>United States</option>
+                  <option>Japan</option>
+                  <option>Other / Worldwide</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Shipping Options -->
+          <div style="margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-serif); font-size: 20px; color: var(--color-dark); margin-bottom: 16px;">2. Insured Shipping Method</h2>
+            <div style="border: 2px solid var(--color-brand-blue); background: var(--color-brand-blue-light); border-radius: var(--radius-sm); padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+              <div style="display: flex; gap: 12px; align-items: center;">
+                <input type="radio" checked name="shipping" id="ship1" style="accent-color: var(--color-brand-blue);">
+                <label for="ship1" style="cursor: pointer;">
+                  <div style="font-weight: 700; font-size: 14px; color: var(--color-dark);">Tracked &amp; Insured Express Delivery</div>
+                  <div style="font-size: 12px; color: var(--color-text-muted);">Fully covered transit insurance &bull; Signature on delivery &bull; 24–48h dispatch</div>
+                </label>
+              </div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--color-dark);">
+                € 18.00
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Options -->
+          <div style="margin-bottom: 30px;">
+            <h2 style="font-family: var(--font-serif); font-size: 20px; color: var(--color-dark); margin-bottom: 16px;">3. Secure Payment Method</h2>
+
+            <div class="payment-method-box selected">
+              <div class="payment-method-left">
+                <input type="radio" name="payment" id="pay-card" checked style="accent-color: var(--color-brand-blue);">
+                <label for="pay-card" style="cursor: pointer;">Credit / Debit Card (Visa, MasterCard, Amex)</label>
+              </div>
+              <span style="font-size: 11px; background: #e8ecf0; padding: 3px 8px; border-radius: 4px; font-weight: 600;">Encrypted</span>
+            </div>
+
+            <div class="payment-method-box">
+              <div class="payment-method-left">
+                <input type="radio" name="payment" id="pay-paypal" style="accent-color: var(--color-brand-blue);">
+                <label for="pay-paypal" style="cursor: pointer;">PayPal Express</label>
+              </div>
+              <span style="font-size: 11px; color: var(--color-text-muted);">Buyer Protection</span>
+            </div>
+
+            <div class="payment-method-box">
+              <div class="payment-method-left">
+                <input type="radio" name="payment" id="pay-bank" style="accent-color: var(--color-brand-blue);">
+                <label for="pay-bank" style="cursor: pointer;">Direct Bank Wire (Virement bancaire)</label>
+              </div>
+              <span style="font-size: 11px; color: var(--color-text-muted);">IBAN SEPA</span>
+            </div>
+          </div>
+
+          <!-- Final Payment Button (WITHOUT placing order) -->
+          <div>
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; padding: 18px; font-size: 16px;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>Pay &amp; Finalize Order — € 358.00</span>
+            </button>
+            <div style="font-size: 12px; color: var(--color-text-muted); text-align: center; margin-top: 10px;">
+              By confirming, you agree to our terms of sales and 1-year guarantee conditions.
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right Column: Order Recap -->
+      <aside class="tunnel-summary-sidebar">
+        <h3 style="font-family: var(--font-serif); font-size: 18px; font-weight: 600; margin-bottom: 16px;">Order Dossier</h3>
+
+        <div class="summary-order-item">
+          <img src="assets/watches/watch_1.webp" alt="Citizen Date Flake" class="summary-img">
+          <div class="summary-item-details">
+            <h4 class="summary-item-title">Citizen Date Flake cal.2710, 1966</h4>
+            <div class="summary-item-meta">Cal. 2710 Hand wound &bull; 1966</div>
+            <div class="summary-item-meta" style="color: #246334; font-weight: 600;">Includes 1-Year Guarantee</div>
+            <div class="summary-item-price" style="margin-top: 6px;">€ 340.00</div>
+          </div>
+        </div>
+
+        <div class="summary-calc-row">
+          <span>Item Total</span>
+          <span style="font-weight: 600; color: var(--color-dark);">€ 340.00</span>
+        </div>
+        <div class="summary-calc-row">
+          <span>Insured Transit</span>
+          <span style="font-weight: 600; color: var(--color-dark);">€ 18.00</span>
+        </div>
+        <div class="summary-calc-row">
+          <span>Workshop Certificate</span>
+          <span style="font-weight: 600; color: #246334;">Included</span>
+        </div>
+
+        <div class="summary-calc-row total">
+          <span>Total Payable</span>
+          <span style="color: var(--color-dark);">€ 358.00</span>
+        </div>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--color-border); font-size: 12px; color: var(--color-text-muted); display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#246334" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Certified authentic vintage piece</span>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#246334" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>14 days trial period</span>
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#246334" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Direct horologist post-sale support</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Interactive Demo Notification Modal (guarantees no real payment happens) -->
+  <div id="demo-modal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 10000; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: #ffffff; border-radius: var(--radius-md); max-width: 440px; padding: 32px; text-align: center; box-shadow: var(--shadow-lg);">
+      <div style="width: 50px; height: 50px; border-radius: 50%; background: #eef6f0; color: #246334; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h3 style="font-family: var(--font-serif); font-size: 22px; margin-bottom: 8px;">Simulation de Refonte</h3>
+      <p style="font-size: 14px; color: var(--color-text-muted); line-height: 1.6; margin-bottom: 20px;">
+        Ceci est une démonstration interactive de tunnel de commande. Aucune commande réelle n'est passée, aucun compte bancaire n'est débité.
+      </p>
+      <button onclick="document.getElementById('demo-modal').style.display='none'" class="btn-primary" style="width: 100%; justify-content: center;">
+        Fermer la simulation
+      </button>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div>
+        <div class="brand-group" style="margin-bottom: 12px;">
+          <img src="assets/logo.webp" alt="Watch &amp; Vintage" style="height: 38px; filter: brightness(0) invert(1);">
+          <div class="brand-titles">
+            <span class="brand-name" style="color: #ffffff; font-size: 18px;">WATCH &amp; VINTAGE</span>
+            <span class="brand-sub" style="color: var(--color-gold);">Le Vingtième Siècle</span>
+          </div>
+        </div>
+        <p class="footer-brand-p">
+          David Broglin E.I. &bull; SIRET 750 333 122 00026 &bull; 68510 France
+        </p>
+      </div>
+      <div>
+        <h4 class="footer-heading">Chrono24 5.0 / 5</h4>
+        <p style="font-size: 13px; color: #94a3b8;">480 verified transactions with 100% positive ratings.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Watch &amp; Vintage • Proposition de refonte</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
