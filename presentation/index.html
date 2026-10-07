@@ -291,6 +291,7 @@
       max-width: 1280px;
       margin: 0 auto;
       border-bottom: 1px solid var(--color-border);
+      scroll-margin-top: 90px;
     }
     .chapter-section:last-of-type {
       border-bottom: none;
@@ -417,9 +418,43 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      flex-wrap: wrap;
+    }
+    .ctrl-group-presets {
+      display: inline-flex;
+      background: var(--color-surface-subtle);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 3px;
+      gap: 3px;
+    }
+    .ctrl-group-presets .ctrl-btn-preset {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .ctrl-group-presets .ctrl-btn-preset:hover,
+    .ctrl-group-presets .ctrl-btn-preset.active {
+      background: #ffffff;
+      color: var(--color-dark);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+    .ctrl-group-tools {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
     .ctrl-btn {
-      padding: 6px 12px;
+      padding: 7px 14px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--color-border);
       background: #ffffff;
@@ -427,8 +462,9 @@
       font-weight: 600;
       color: var(--color-text-main);
       cursor: pointer;
-      display: flex;
+      display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       transition: all 0.2s ease;
     }
@@ -437,7 +473,7 @@
       border-color: #cfcac0;
     }
     .ctrl-btn-live {
-      padding: 6px 14px;
+      padding: 7px 14px;
       border-radius: var(--radius-sm);
       border: 1px solid rgba(191, 161, 95, 0.6);
       background: var(--color-gold-light);
@@ -446,6 +482,7 @@
       color: #795d1f;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       transition: all 0.2s ease;
     }
@@ -480,10 +517,10 @@
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
-      width: 100px;
-      height: 20px;
+      width: 80px;
+      height: 16px;
       background: #11161b;
-      border-radius: 12px;
+      border-radius: 10px;
       z-index: 25;
       pointer-events: none;
     }
@@ -603,6 +640,20 @@
       pointer-events: none;
       backdrop-filter: blur(4px);
     }
+    .slider-container.mode-mobile .badge-side-after {
+      top: auto;
+      bottom: 14px;
+      left: 14px;
+      font-size: 10px;
+      padding: 4px 10px;
+    }
+    .slider-container.mode-mobile .badge-side-base {
+      top: auto;
+      bottom: 14px;
+      right: 14px;
+      font-size: 10px;
+      padding: 4px 10px;
+    }
 
     /* --- MOBILE PHONE FRAME MOCKUP --- */
     .mobile-mockup-wrapper {
@@ -711,23 +762,50 @@
 
     /* Responsive */
     @media (max-width: 900px) {
+      .pres-header {
+        padding: 36px 16px 28px;
+      }
       .pres-brand-bar {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 16px;
+      }
+      .pres-brand-left {
+        justify-content: flex-start;
+      }
+      .btn-demo-link {
+        width: 100%;
+        justify-content: center;
       }
       .pres-date-badge {
         font-size: 11px;
-        white-space: normal;
-        max-width: 100%;
+        text-align: center;
+        width: 100%;
       }
+      .pres-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .pres-main-title {
+        font-size: 25px;
+        line-height: 1.25;
+      }
+      .pres-main-lead {
+        font-size: 14.5px;
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+      .pres-reasons-card {
+        padding: 20px 16px;
+      }
+
       .summary-nav {
-        padding: 10px 12px;
+        padding: 8px 12px;
       }
       .summary-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 10px;
+        gap: 8px;
       }
       .summary-vignettes {
         overflow-x: auto;
@@ -735,36 +813,119 @@
         width: 100%;
         -webkit-overflow-scrolling: touch;
       }
+      .vignette-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+      }
       .format-switcher {
-        align-self: center;
-      }
-      .phone-frame {
         width: 100%;
-        max-width: 320px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
       }
-      .mobile-mockup-wrapper {
-        padding: 24px 12px;
-        flex-direction: column;
-        align-items: center;
+      .format-btn {
+        justify-content: center;
+        padding: 7px 8px;
+        font-size: 12px;
       }
-      .pres-intro-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
+
+      .chapter-section {
+        padding: 36px 16px;
+      }
+      .chapter-title {
+        font-size: 21px;
+        line-height: 1.3;
+      }
+      .chapter-desc {
+        font-size: 14px;
+        line-height: 1.6;
       }
       .chapter-points-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
       }
-      .pres-main-title {
-        font-size: 28px;
+      .point-card {
+        padding: 16px;
       }
-      .chapter-title {
-        font-size: 24px;
-      }
+
       .comparator-toolbar {
         padding: 12px 14px;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: stretch;
         gap: 10px;
+      }
+      .comparator-labels {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 11.5px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--color-border-subtle);
+      }
+      .comparator-actions {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+      }
+      .ctrl-group-presets {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        width: 100%;
+        padding: 3px;
+        gap: 3px;
+      }
+      .ctrl-group-presets .ctrl-btn-preset {
+        padding: 8px 4px;
+        font-size: 12px;
+        text-align: center;
+        justify-content: center;
+      }
+      .ctrl-group-tools {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        gap: 8px;
+      }
+      .ctrl-btn-live, .ctrl-btn-fs {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+
+      /* Badges dans le slider toujours calés en bas sur mobile pour ne jamais gêner le haut */
+      .badge-side-after {
+        top: auto;
+        bottom: 12px;
+        left: 12px;
+        font-size: 10px;
+        padding: 4px 10px;
+      }
+      .badge-side-base {
+        top: auto;
+        bottom: 12px;
+        right: 12px;
+        font-size: 10px;
+        padding: 4px 10px;
+      }
+      .slider-handle-knob {
+        width: 44px;
+        height: 44px;
+        font-size: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .slider-container.mode-mobile {
+        max-width: 100%;
+        border-radius: 16px !important;
+        border: none !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      }
+      .phone-notch-bar {
+        display: none !important;
       }
     }
   </style>
@@ -918,26 +1079,33 @@
     <div class="comparator-wrapper" data-screen="home">
       <div class="comparator-toolbar">
         <div class="comparator-labels">
-          <span class="label-after">◀ Version faite (Proposition)</span>
-          <span class="label-before">Version de base (Actuel) ▶</span>
+          <span class="label-after">◀ Refonte proposée</span>
+          <span class="label-before">Site actuel ▶</span>
         </div>
         <div class="comparator-actions">
-          <a href="/redesign/index.html" target="_blank" class="ctrl-btn-live">Tester en direct ↗</a>
-          <button class="ctrl-btn" onclick="setSliderPercent('home', 0)">◀ Version de base (100%)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('home', 50)">50 / 50 (Comparaison)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('home', 100)">Version faite (100%) ▶</button>
-          <button class="ctrl-btn" onclick="openFullscreen('home')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            Plein écran
-          </button>
+          <div class="ctrl-group-presets">
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 0)" title="Afficher l'existant à 100%">◀ Base</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 50)" title="Vue comparaison 50/50">50 / 50</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
+          </div>
+          <div class="ctrl-group-tools">
+            <a href="/redesign/index.html" target="_blank" class="ctrl-btn-live">
+              <span>Tester en direct</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('home')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Plein écran</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Slider Container with Clip-Path -->
       <div class="slider-container mode-desktop" id="slider-home">
         <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Version faite (Proposition)</span>
-        <span class="badge-side-base">Version de base (Actuel) ▶</span>
+        <span class="badge-side-after">◀ Refonte</span>
+        <span class="badge-side-base">Actuel ▶</span>
         <img src="assets/captures/before/desktop/home.webp" alt="Accueil Version de base" class="slider-img slider-img-base">
         <img src="assets/captures/after/desktop/home.webp" alt="Accueil Version faite" class="slider-img slider-img-after">
         <div class="slider-handle">
@@ -991,26 +1159,33 @@
     <div class="comparator-wrapper" data-screen="catalog">
       <div class="comparator-toolbar">
         <div class="comparator-labels">
-          <span class="label-after">◀ Version faite (Proposition)</span>
-          <span class="label-before">Version de base (Actuel) ▶</span>
+          <span class="label-after">◀ Refonte proposée</span>
+          <span class="label-before">Site actuel ▶</span>
         </div>
         <div class="comparator-actions">
-          <a href="/redesign/catalog.html" target="_blank" class="ctrl-btn-live">Tester en direct ↗</a>
-          <button class="ctrl-btn" onclick="setSliderPercent('catalog', 0)">◀ Version de base (100%)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('catalog', 50)">50 / 50 (Comparaison)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('catalog', 100)">Version faite (100%) ▶</button>
-          <button class="ctrl-btn" onclick="openFullscreen('catalog')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            Plein écran
-          </button>
+          <div class="ctrl-group-presets">
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 0)" title="Afficher l'existant à 100%">◀ Base</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 50)" title="Vue comparaison 50/50">50 / 50</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
+          </div>
+          <div class="ctrl-group-tools">
+            <a href="/redesign/catalog.html" target="_blank" class="ctrl-btn-live">
+              <span>Tester en direct</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('catalog')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Plein écran</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Slider Container with Clip-Path -->
       <div class="slider-container mode-desktop" id="slider-catalog">
         <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Version faite (Proposition)</span>
-        <span class="badge-side-base">Version de base (Actuel) ▶</span>
+        <span class="badge-side-after">◀ Refonte</span>
+        <span class="badge-side-base">Actuel ▶</span>
         <img src="assets/captures/before/desktop/catalog.webp" alt="Catalogue Version de base" class="slider-img slider-img-base">
         <img src="assets/captures/after/desktop/catalog.webp" alt="Catalogue Version faite" class="slider-img slider-img-after">
         <div class="slider-handle">
@@ -1064,26 +1239,33 @@
     <div class="comparator-wrapper" data-screen="product_available">
       <div class="comparator-toolbar">
         <div class="comparator-labels">
-          <span class="label-after">◀ Version faite (Proposition)</span>
-          <span class="label-before">Version de base (Actuel) ▶</span>
+          <span class="label-after">◀ Refonte proposée</span>
+          <span class="label-before">Site actuel ▶</span>
         </div>
         <div class="comparator-actions">
-          <a href="/redesign/product-available.html" target="_blank" class="ctrl-btn-live">Tester en direct ↗</a>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_available', 0)">◀ Version de base (100%)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_available', 50)">50 / 50 (Comparaison)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_available', 100)">Version faite (100%) ▶</button>
-          <button class="ctrl-btn" onclick="openFullscreen('product_available')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            Plein écran
-          </button>
+          <div class="ctrl-group-presets">
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 0)" title="Afficher l'existant à 100%">◀ Base</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 50)" title="Vue comparaison 50/50">50 / 50</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
+          </div>
+          <div class="ctrl-group-tools">
+            <a href="/redesign/product-available.html" target="_blank" class="ctrl-btn-live">
+              <span>Tester en direct</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('product_available')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Plein écran</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Slider Container with Clip-Path -->
       <div class="slider-container mode-desktop" id="slider-product_available">
         <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Version faite (Proposition)</span>
-        <span class="badge-side-base">Version de base (Actuel) ▶</span>
+        <span class="badge-side-after">◀ Refonte</span>
+        <span class="badge-side-base">Actuel ▶</span>
         <img src="assets/captures/before/desktop/product_available.webp" alt="Citizen Date Flake Version de base" class="slider-img slider-img-base">
         <img src="assets/captures/after/desktop/product_available.webp" alt="Citizen Date Flake Version faite" class="slider-img slider-img-after">
         <div class="slider-handle">
@@ -1137,26 +1319,33 @@
     <div class="comparator-wrapper" data-screen="product_soldout">
       <div class="comparator-toolbar">
         <div class="comparator-labels">
-          <span class="label-after">◀ Version faite (Proposition)</span>
-          <span class="label-before">Version de base (Actuel) ▶</span>
+          <span class="label-after">◀ Refonte proposée</span>
+          <span class="label-before">Site actuel ▶</span>
         </div>
         <div class="comparator-actions">
-          <a href="/redesign/product-soldout.html" target="_blank" class="ctrl-btn-live">Tester en direct ↗</a>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_soldout', 0)">◀ Version de base (100%)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_soldout', 50)">50 / 50 (Comparaison)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('product_soldout', 100)">Version faite (100%) ▶</button>
-          <button class="ctrl-btn" onclick="openFullscreen('product_soldout')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            Plein écran
-          </button>
+          <div class="ctrl-group-presets">
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 0)" title="Afficher l'existant à 100%">◀ Base</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 50)" title="Vue comparaison 50/50">50 / 50</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
+          </div>
+          <div class="ctrl-group-tools">
+            <a href="/redesign/product-soldout.html" target="_blank" class="ctrl-btn-live">
+              <span>Tester en direct</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('product_soldout')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Plein écran</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Slider Container with Clip-Path -->
       <div class="slider-container mode-desktop" id="slider-product_soldout">
         <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Version faite (Proposition)</span>
-        <span class="badge-side-base">Version de base (Actuel) ▶</span>
+        <span class="badge-side-after">◀ Refonte</span>
+        <span class="badge-side-base">Actuel ▶</span>
         <img src="assets/captures/before/desktop/product_soldout.webp" alt="Longines Ultra-Chron Version de base" class="slider-img slider-img-base">
         <img src="assets/captures/after/desktop/product_soldout.webp" alt="Longines Ultra-Chron Version faite" class="slider-img slider-img-after">
         <div class="slider-handle">
@@ -1210,26 +1399,33 @@
     <div class="comparator-wrapper" data-screen="cart">
       <div class="comparator-toolbar">
         <div class="comparator-labels">
-          <span class="label-after">◀ Version faite (Proposition)</span>
-          <span class="label-before">Version de base (Actuel) ▶</span>
+          <span class="label-after">◀ Refonte proposée</span>
+          <span class="label-before">Site actuel ▶</span>
         </div>
         <div class="comparator-actions">
-          <a href="/redesign/cart.html" target="_blank" class="ctrl-btn-live">Tester en direct ↗</a>
-          <button class="ctrl-btn" onclick="setSliderPercent('cart', 0)">◀ Version de base (100%)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('cart', 50)">50 / 50 (Comparaison)</button>
-          <button class="ctrl-btn" onclick="setSliderPercent('cart', 100)">Version faite (100%) ▶</button>
-          <button class="ctrl-btn" onclick="openFullscreen('cart')">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-            Plein écran
-          </button>
+          <div class="ctrl-group-presets">
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 0)" title="Afficher l'existant à 100%">◀ Base</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 50)" title="Vue comparaison 50/50">50 / 50</button>
+            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
+          </div>
+          <div class="ctrl-group-tools">
+            <a href="/redesign/cart.html" target="_blank" class="ctrl-btn-live">
+              <span>Tester en direct</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('cart')">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Plein écran</span>
+            </button>
+          </div>
         </div>
       </div>
 
       <!-- Slider Container with Clip-Path -->
       <div class="slider-container mode-desktop" id="slider-cart">
         <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Version faite (Proposition)</span>
-        <span class="badge-side-base">Version de base (Actuel) ▶</span>
+        <span class="badge-side-after">◀ Refonte</span>
+        <span class="badge-side-base">Actuel ▶</span>
         <img src="assets/captures/before/desktop/cart.webp" alt="Panier Version de base" class="slider-img slider-img-base">
         <img src="assets/captures/after/desktop/cart.webp" alt="Panier Version faite" class="slider-img slider-img-after">
         <div class="slider-handle">
@@ -1410,6 +1606,11 @@
     function setActiveVignette(el) {
       document.querySelectorAll('.vignette-btn').forEach(b => b.classList.remove('active'));
       el.classList.add('active');
+    }
+
+    // Auto-detect mobile screen on initial load
+    if (window.innerWidth <= 768) {
+      setDeviceMode('mobile');
     }
   </script>
 </body>
