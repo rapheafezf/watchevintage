@@ -22,9 +22,9 @@ const MIME_TYPES = {
 function handleRequest(req, res) {
   let reqPath = decodeURI(req.url.split('?')[0]);
 
-  // Root serves index.html (Boutique refondue)
+  // Root serves presentation/index.html (Le dossier de présentation Avant / Après)
   if (reqPath === '/' || reqPath === '') {
-    reqPath = '/index.html';
+    reqPath = '/presentation/index.html';
   }
 
   let filePath = path.join(ROOT_DIR, reqPath);
@@ -88,8 +88,8 @@ function startPrimaryServer(port) {
     console.log(`\n===============================================================`);
     console.log(`  ✓ Serveur local Watch & Vintage démarré avec succès !`);
     console.log(`  -------------------------------------------------------------`);
-    console.log(`  ➜ Boutique (Site Principal) : http://localhost:${port}/`);
-    console.log(`  ➜ Présentation Avant / Après: http://localhost:${port}/presentation/`);
+    console.log(`  ➜ Présentation Avant / Après: http://localhost:${port}/`);
+    console.log(`  ➜ Boutique Démo en Direct   : http://localhost:${port}/redesign/`);
     console.log(`===============================================================\n`);
 
     // If on port 4000, also try to bind port 3000 as convenience if free

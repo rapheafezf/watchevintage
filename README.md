@@ -45,34 +45,35 @@ npm start
 node scripts/server.js
 ```
 
-Le serveur démarre sur le port **4000** :
-- **Boutique Démo Refondue (Site Principal)** : [http://localhost:4000/](http://localhost:4000/)
-  - Catalogue : [http://localhost:4000/catalog.html](http://localhost:4000/catalog.html)
-  - Montre en stock : [http://localhost:4000/product-available.html](http://localhost:4000/product-available.html)
-  - Montre vendue : [http://localhost:4000/product-soldout.html](http://localhost:4000/product-soldout.html)
-  - Panier : [http://localhost:4000/cart.html](http://localhost:4000/cart.html)
-  - Validation commande : [http://localhost:4000/checkout.html](http://localhost:4000/checkout.html)
-- **Présentation Avant / Après** : [http://localhost:4000/presentation/](http://localhost:4000/presentation/)
+Le serveur démarre sur le port **4000** (et **3000**) :
+- **Présentation Avant / Après (Accueil du dossier)** : [http://localhost:4000/](http://localhost:4000/) ou `http://localhost:4000/presentation/`
+- **Boutique Démo Refondue en Direct** : [http://localhost:4000/redesign/](http://localhost:4000/redesign/)
+  - Catalogue : [http://localhost:4000/redesign/catalog.html](http://localhost:4000/redesign/catalog.html)
+  - Montre en stock : [http://localhost:4000/redesign/product-available.html](http://localhost:4000/redesign/product-available.html)
+  - Montre vendue : [http://localhost:4000/redesign/product-soldout.html](http://localhost:4000/redesign/product-soldout.html)
+  - Panier : [http://localhost:4000/redesign/cart.html](http://localhost:4000/redesign/cart.html)
+  - Validation commande : [http://localhost:4000/redesign/checkout.html](http://localhost:4000/redesign/checkout.html)
 
 ---
 
 ## 📁 Architecture du Projet
 
 ```text
-├── index.html                   # Page d'accueil de la boutique refondue (Site Principal)
-├── catalog.html                 # Catalogue avec filtres & tri dynamiques
-├── product-available.html       # Fiche produit en stock (Citizen Flake)
-├── product-soldout.html         # Fiche produit archivée (Longines Ultra-Chron)
-├── cart.html                    # Panier d'achat
-├── checkout.html                # Tunnel de commande sécurisé
-├── styles.css                   # Feuilles de style haute horlogerie
-├── main.js                      # Scripts interactifs et navigation mobile
-├── assets/                      # Photos réelles des montres & logo officiel
-├── presentation/                # Page de présentation interactive Avant / Après
+├── index.html                   # Point d'entrée avec redirection immédiate vers la présentation
+├── presentation/                # Dossier de présentation interactif Avant / Après
 │   ├── index.html               # Comparateur avec curseurs, plein écran & bascule mobile
 │   ├── assets/                  # Captures WebP optimisées (before/after desktop & mobile)
 │   └── portal.html              # Archive portail de redirection
-├── redesign/                    # Copie miroir de sauvegarde du prototype
+├── redesign/                    # Boutique démo refondue (prototype navigable complet)
+│   ├── index.html               # Page d'accueil boutique
+│   ├── catalog.html             # Catalogue avec filtres & tri dynamiques
+│   ├── product-available.html   # Fiche produit en stock (Citizen Flake)
+│   ├── product-soldout.html     # Fiche produit archivée (Longines Ultra-Chron)
+│   ├── cart.html                # Panier d'achat
+│   ├── checkout.html            # Tunnel de commande sécurisé
+│   ├── styles.css               # Feuilles de style haute horlogerie
+│   ├── main.js                  # Scripts interactifs et navigation mobile
+│   └── assets/                  # Photos réelles des montres & logo officiel
 ├── data/                        # Données structurées des pièces horlogères
 ├── captures/                    # Captures d'écran sources haute définition (1440px & 390px)
 ├── scripts/                     # Scripts de capture Playwright, conversion WebP et serveur HTTP
