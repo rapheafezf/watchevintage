@@ -81,14 +81,14 @@ async function testBrowser(engineName, launcher) {
 
     // 4. Test Interactive Slider Drag
     const sliderTested = await page.evaluate(() => {
-      const container = document.querySelector('.slider-container');
-      if (!container) return false;
-      const afterImg = container.querySelector('.slider-img-after');
-      const handle = container.querySelector('.slider-handle');
+      const slider = document.querySelector('.split-slider');
+      if (!slider) return false;
+      const handle = slider.querySelector('.split-handle');
+      const layerBefore = slider.querySelector('.layer-before');
       
       // Simulate slider move to 30%
       setSliderPercent('home', 30);
-      return afterImg.style.clipPath.includes('70%') && handle.style.left === '30%';
+      return layerBefore.style.width === '30%' && handle.style.left === '30%';
     });
     console.log(`  [PASS] Slider control interact test: ${sliderTested ? 'OK' : 'FAIL'}`);
 

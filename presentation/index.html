@@ -2,1627 +2,1734 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Watch &amp; Vintage — Présentation Avant / Après de la Refonte</title>
-  <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --color-bg: #f8f7f4;
-      --color-surface: #ffffff;
-      --color-surface-subtle: #f2efe9;
-      --color-dark: #11161b;
-      --color-dark-card: #182026;
-      --color-brand-blue: #3d677e;
-      --color-brand-blue-light: #edf4f8;
-      --color-gold: #bfa15f;
-      --color-gold-light: #fcf8ee;
-      --color-text-main: #1f272e;
-      --color-text-muted: #616e7a;
-      --color-border: #e3dfd5;
-      --color-border-subtle: #ece9e1;
-      
-      --font-serif: 'Playfair Display', Georgia, serif;
-      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      --font-script: 'Caveat', cursive, sans-serif;
-      
-      --shadow-sm: 0 2px 8px rgba(17, 22, 27, 0.05);
-      --shadow-md: 0 8px 24px rgba(17, 22, 27, 0.08);
-      --shadow-lg: 0 16px 40px rgba(17, 22, 27, 0.12);
-      --radius-sm: 6px;
-      --radius-md: 12px;
-      --radius-lg: 18px;
+      --bg-dark: #0a0d12;
+      --bg-card: #121720;
+      --bg-card-hover: #181f2b;
+      --border-color: #242c38;
+      --border-gold: #c5a059;
+      --gold-primary: #c5a059;
+      --gold-light: #dfc288;
+      --gold-dark: #967635;
+      --text-main: #f4f2ee;
+      --text-muted: #9ba3af;
+      --text-dim: #6b7280;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    body {
-      background-color: var(--color-bg);
-      color: var(--color-text-main);
+    html, body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
       font-family: var(--font-sans);
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
+      max-width: 100%;
+      width: 100%;
     }
 
-    a {
-      color: inherit;
+    /* Container */
+    .container {
+      max-width: 1240px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 24px;
+      overflow-x: clip;
+    }
+
+    /* Header Nav */
+    header.site-header {
+      background: rgba(10, 13, 18, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 16px 0;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
       text-decoration: none;
+      color: var(--text-main);
     }
-
-    /* --- PROPOSITION WATERMARK --- */
-    .prop-pill {
+    .brand-symbol {
+      width: 34px;
+      height: 34px;
+      border: 1px dashed var(--gold-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-name {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-main);
+      font-weight: 600;
+      line-height: 1.1;
+    }
+    .brand-sub {
+      font-size: 9px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      font-weight: 500;
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .header-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(191, 161, 95, 0.15);
-      color: #8c6e2d;
-      border: 1px solid rgba(191, 161, 95, 0.4);
-      padding: 4px 12px;
-      border-radius: 999px;
+      padding: 6px 14px;
+      background: rgba(197, 160, 89, 0.1);
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      color: var(--gold-light);
       font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
       text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-weight: 500;
     }
-    .prop-pill::before {
+    .header-badge::before {
       content: '';
       width: 6px;
       height: 6px;
       border-radius: 50%;
-      background: var(--color-gold);
+      background: var(--gold-primary);
     }
-
-    /* --- PRESENTATION HEADER --- */
-    .pres-header {
-      background: var(--color-dark);
-      color: #ffffff;
-      padding: 60px 24px 50px;
-      position: relative;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-    .pres-header-inner {
-      max-width: 1280px;
-      margin: 0 auto;
-    }
-    .pres-brand-bar {
-      display: flex;
-      justify-content: space-between;
+    .btn-live-demo {
+      display: inline-flex;
       align-items: center;
-      margin-bottom: 36px;
-      flex-wrap: gap;
-      gap: 20px;
-    }
-    .pres-brand-left {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .pres-brand-logo {
-      height: 48px;
-      width: auto;
-      background: #ffffff;
-      padding: 6px 12px;
-      border-radius: var(--radius-sm);
-    }
-    .pres-brand-titles {
-      display: flex;
-      flex-direction: column;
-    }
-    .pres-brand-name {
-      font-family: var(--font-serif);
-      font-size: 22px;
+      gap: 8px;
+      background: var(--gold-primary);
+      color: #0a0d12;
       font-weight: 700;
-      letter-spacing: 0.04em;
-    }
-    .pres-brand-sub {
       font-size: 11px;
-      color: #a4b3be;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
+      padding: 7px 16px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s ease;
     }
-    .pres-date-badge {
-      font-size: 12px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 8px 16px;
-      border-radius: 999px;
-      color: #d1dde6;
+    .btn-live-demo:hover {
+      background: var(--gold-light);
+      transform: translateY(-1px);
     }
 
-    .pres-intro-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
-      align-items: center;
+    /* Hero */
+    .hero {
+      padding: 72px 0 48px;
+      text-align: center;
+      position: relative;
     }
-    .pres-main-title {
-      font-family: var(--font-serif);
-      font-size: 42px;
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(197, 160, 89, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 16px;
       font-weight: 600;
-      line-height: 1.15;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 5vw, 54px);
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      text-transform: uppercase;
       margin-bottom: 20px;
+      color: var(--text-main);
     }
-    .pres-main-title span {
-      color: var(--color-gold);
+    .hero-title span {
+      color: var(--gold-light);
+      font-style: italic;
+      font-family: var(--font-serif);
+      text-transform: none;
     }
-    .pres-main-lead {
-      font-size: 17px;
-      color: #cbd5e1;
+    .hero-intro {
+      max-width: 820px;
+      margin: 0 auto 32px;
+      font-size: 16px;
+      color: var(--text-muted);
       line-height: 1.7;
-      margin-bottom: 24px;
     }
 
-    .pres-reasons-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      backdrop-filter: blur(10px);
+    /* Le Constat & La Vision */
+    .context-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      margin-bottom: 56px;
+      border-radius: 2px;
+      position: relative;
     }
-    .pres-reasons-title {
+    .context-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--gold-primary);
+    }
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 24px;
+    }
+    .context-item {
+      background: rgba(10, 13, 18, 0.5);
+      border: 1px solid rgba(36, 44, 56, 0.7);
+      padding: 22px;
+    }
+    .context-item h4 {
       font-family: var(--font-serif);
       font-size: 18px;
-      color: #ffffff;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .pres-reasons-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      font-size: 14px;
-      color: #cbd5e1;
-    }
-    .pres-reasons-list li {
-      display: flex;
-      gap: 10px;
-      align-items: start;
-    }
-    .pres-reasons-list svg {
-      color: var(--color-gold);
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    /* --- SUMMARY VIGNETTES --- */
-    .summary-nav {
-      background: var(--color-surface);
-      border-bottom: 1px solid var(--color-border);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      padding: 16px 24px;
-      box-shadow: var(--shadow-sm);
-    }
-    .summary-container {
-      max-width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      overflow-x: auto;
-    }
-    .summary-vignettes {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-      list-style: none;
-    }
-    .vignette-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-surface-subtle);
-      border: 1px solid var(--color-border-subtle);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--color-text-main);
-      cursor: pointer;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .vignette-btn:hover, .vignette-btn.active {
-      background: var(--color-dark);
-      color: #ffffff;
-      border-color: var(--color-dark);
-    }
-    .vignette-num {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-    }
-    .vignette-btn.active .vignette-num {
-      background: var(--color-gold);
-      color: #111;
-    }
-
-    /* Format selector in sticky bar */
-    .format-switcher {
-      display: flex;
-      align-items: center;
-      background: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      border-radius: 999px;
-      padding: 4px;
-      gap: 4px;
-      flex-shrink: 0;
-    }
-    .format-btn {
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 600;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      color: var(--color-text-muted);
-      transition: all 0.2s ease;
-    }
-    .format-btn.active {
-      background: var(--color-dark);
-      color: #ffffff;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    /* --- CHAPTER SECTIONS --- */
-    .chapter-section {
-      padding: 80px 24px;
-      max-width: 1280px;
-      margin: 0 auto;
-      border-bottom: 1px solid var(--color-border);
-      scroll-margin-top: 90px;
-    }
-    .chapter-section:last-of-type {
-      border-bottom: none;
-    }
-
-    .chapter-header {
-      margin-bottom: 32px;
-    }
-    .chapter-eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--color-brand-blue);
-      font-weight: 700;
-      margin-bottom: 6px;
-      display: block;
-    }
-    .chapter-title {
-      font-family: var(--font-serif);
-      font-size: 34px;
-      font-weight: 600;
-      color: var(--color-dark);
-      margin-bottom: 12px;
-    }
-    .chapter-desc {
-      font-size: 16px;
-      color: var(--color-text-muted);
-      max-width: 860px;
-      line-height: 1.7;
-    }
-
-    /* 3 CONCRETE POINTS */
-    .chapter-points-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-    .point-card {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-md);
-      padding: 22px 20px;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.2s ease;
-    }
-    .point-card:hover {
-      border-color: #cfcac0;
-      box-shadow: var(--shadow-md);
-    }
-    .point-card-num {
-      font-family: var(--font-serif);
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--color-gold);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .point-card-num::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--color-border);
-    }
-    .point-card-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--color-dark);
+      color: var(--gold-light);
       margin-bottom: 8px;
-      line-height: 1.35;
+      letter-spacing: 0.05em;
     }
-    .point-card-text {
-      font-size: 13.5px;
-      color: var(--color-text-muted);
+    .context-item p {
+      font-size: 13px;
+      color: var(--text-muted);
       line-height: 1.6;
     }
 
-    /* --- COMPARATOR VIEWER CONTAINER --- */
-    .comparator-wrapper {
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-    }
-    .comparator-toolbar {
-      padding: 14px 24px;
-      background: #fdfcfb;
-      border-bottom: 1px solid var(--color-border);
+    /* Global View Switcher Bar */
+    .controls-bar {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px 24px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 48px;
+      position: sticky;
+      top: 67px;
+      z-index: 90;
+      backdrop-filter: blur(10px);
+    }
+    .controls-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+    .control-groups {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .segmented-control {
+      display: inline-flex;
+      background: var(--bg-dark);
+      border: 1px solid var(--border-color);
+      padding: 3px;
+      border-radius: 2px;
+    }
+    .segmented-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .segmented-btn.active {
+      background: var(--bg-card);
+      color: var(--gold-light);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-gold);
+    }
+    .segmented-btn:hover:not(.active) {
+      color: var(--text-main);
+    }
+
+    /* Sommaire Vignettes */
+    .toc-section {
+      margin-bottom: 64px;
+    }
+    .toc-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
       gap: 12px;
     }
-    .comparator-labels {
-      display: flex;
+    .toc-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-color);
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 16px;
-      align-items: center;
-      font-size: 13px;
-      font-weight: 600;
     }
-    .label-before {
-      color: #64748b;
+    .toc-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      text-decoration: none;
+      color: var(--text-main);
       display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .label-before::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #94a3b8;
-    }
-    .label-after {
-      color: var(--color-dark);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .label-after::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-gold);
-    }
-
-    .comparator-actions {
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       gap: 10px;
-      flex-wrap: wrap;
-    }
-    .ctrl-group-presets {
-      display: inline-flex;
-      background: var(--color-surface-subtle);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      padding: 3px;
-      gap: 3px;
-    }
-    .ctrl-group-presets .ctrl-btn-preset {
-      border: none;
-      background: transparent;
-      padding: 6px 14px;
-      border-radius: 4px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--color-text-main);
+      transition: all 0.25s ease;
       cursor: pointer;
+    }
+    .toc-card:hover {
+      border-color: var(--gold-primary);
+      transform: translateY(-2px);
+      background: var(--bg-card-hover);
+    }
+    .toc-thumb {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #000;
+      border: 1px solid var(--border-color);
+    }
+    .toc-num {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold-primary);
+      font-weight: 600;
+    }
+    .toc-heading {
+      font-family: var(--font-serif);
+      font-size: 15px;
+      color: var(--text-main);
+      line-height: 1.3;
+      font-weight: 600;
+    }
+
+    /* Screen Chapter */
+    .screen-chapter {
+      margin-bottom: 96px;
+      scroll-margin-top: 150px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 56px;
+    }
+    .chapter-header {
+      margin-bottom: 32px;
+    }
+    .chapter-badge {
+      display: inline-block;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold-primary);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .chapter-title {
+      font-family: var(--font-serif);
+      font-size: clamp(24px, 3.5vw, 36px);
+      color: var(--text-main);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .chapter-explanation {
+      font-size: 16px;
+      color: var(--gold-light);
+      max-width: 900px;
+      margin-bottom: 24px;
+      line-height: 1.6;
+      font-weight: 400;
+    }
+
+    /* 3 Concrete Points */
+    .points-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .point-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 18px 20px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .point-num {
+      width: 24px;
+      height: 24px;
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid var(--gold-primary);
+      color: var(--gold-primary);
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.2s ease;
+      font-size: 11px;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
-    .ctrl-group-presets .ctrl-btn-preset:hover,
-    .ctrl-group-presets .ctrl-btn-preset.active {
-      background: #ffffff;
-      color: var(--color-dark);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-    .ctrl-group-tools {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .ctrl-btn {
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--color-border);
-      background: #ffffff;
-      font-size: 12px;
+    .point-content h5 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+      margin-bottom: 6px;
       font-weight: 600;
-      color: var(--color-text-main);
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s ease;
     }
-    .ctrl-btn:hover {
-      background: var(--color-surface-subtle);
-      border-color: #cfcac0;
-    }
-    .ctrl-btn-live {
-      padding: 7px 14px;
-      border-radius: var(--radius-sm);
-      border: 1px solid rgba(191, 161, 95, 0.6);
-      background: var(--color-gold-light);
-      font-size: 12px;
-      font-weight: 700;
-      color: #795d1f;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      transition: all 0.2s ease;
-    }
-    .ctrl-btn-live:hover {
-      background: var(--color-gold);
-      color: #111;
-      border-color: var(--color-gold);
-      box-shadow: 0 2px 10px rgba(191, 161, 95, 0.35);
-    }
-    .btn-demo-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--color-gold);
-      color: #11161b;
-      font-weight: 700;
-      font-size: 12px;
-      padding: 8px 18px;
-      border-radius: 999px;
-      letter-spacing: 0.04em;
-      box-shadow: 0 4px 12px rgba(191, 161, 95, 0.35);
-      transition: all 0.2s ease;
-    }
-    .btn-demo-link:hover {
-      background: #d4af37;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 16px rgba(191, 161, 95, 0.45);
-    }
-    .phone-notch-bar {
-      display: none;
-      position: absolute;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 16px;
-      background: #11161b;
-      border-radius: 10px;
-      z-index: 25;
-      pointer-events: none;
-    }
-    .slider-container.mode-mobile .phone-notch-bar {
-      display: block;
+    .point-content p {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.55;
     }
 
-    /* --- INTERACTIVE SLIDER VIEW (CLIP-PATH FIXED COMPARATOR) --- */
-    .slider-container {
+    /* Comparator Container */
+    .comparator-wrapper {
+      position: relative;
+      background: #000;
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      margin-bottom: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .comparator-wrapper:hover {
+      border-color: rgba(197, 160, 89, 0.4);
+    }
+
+    /* Slider Container */
+    .split-slider {
       position: relative;
       width: 100%;
-      overflow: hidden;
       user-select: none;
-      background: #fbfaf8;
-      cursor: ew-resize;
-      margin: 0 auto;
-      transition: max-width 0.3s ease, border-radius 0.3s ease;
+      -webkit-user-select: none;
+      overflow: hidden;
     }
-    .slider-container.mode-desktop {
-      max-width: 100%;
+    .split-slider.desktop-view {
       aspect-ratio: 1440 / 900;
     }
-    .slider-container.mode-mobile {
-      max-width: 390px;
+    .split-slider.mobile-view {
       aspect-ratio: 390 / 844;
-      border-radius: 40px;
-      border: 10px solid #11161b;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+      max-width: 440px;
+      margin: 0 auto;
+      border: 8px solid #202632;
+      border-radius: 36px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
     }
 
-    .slider-img {
+    .split-layer {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
+    }
+    .split-layer.layer-after {
+      z-index: 1;
+    }
+    .split-layer.layer-before {
+      z-index: 2;
+      overflow: hidden;
+      width: 50%;
+      border-right: 2px solid var(--gold-primary);
+    }
+    .split-img {
+      display: block;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
       pointer-events: none;
     }
-    .slider-img-base {
-      z-index: 1;
-    }
-    .slider-img-after {
-      z-index: 2;
-      clip-path: inset(0 calc(100% - 50%) 0 0);
-      will-change: clip-path;
+    .split-layer.layer-before .split-img {
+      width: var(--slider-width, 100%);
+      max-width: none;
     }
 
-    /* Le trait blanc séparateur */
-    .slider-handle {
+    /* State Pills (AVANT / PROPOSITION) */
+    .state-pill {
+      position: absolute;
+      top: 16px;
+      padding: 6px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      border-radius: 2px;
+      z-index: 5;
+      pointer-events: none;
+      backdrop-filter: blur(8px);
+    }
+    .pill-before {
+      left: 16px;
+      background: rgba(20, 24, 28, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e5e7eb;
+    }
+    .pill-after {
+      right: 16px;
+      background: rgba(197, 160, 89, 0.9);
+      border: 1px solid #dfc288;
+      color: #0a0d12;
+    }
+
+    /* Split Handle */
+    .split-handle {
       position: absolute;
       top: 0;
       bottom: 0;
       left: 50%;
-      width: 3px;
-      background: #ffffff;
-      cursor: ew-resize;
+      width: 40px;
+      margin-left: -20px;
       z-index: 10;
-      transform: translateX(-50%);
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Le bouton noir comparateur au milieu */
-    .slider-handle-knob {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #11161b;
-      color: #ffffff;
-      border: 3px solid #ffffff;
-      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+      cursor: ew-resize;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
-      font-size: 11px;
-      font-weight: 700;
-      pointer-events: none;
-      z-index: 11;
+      outline: none;
     }
-
-    /* Badges indiquant ce qu'on voit de chaque côté */
-    .badge-side-after {
-      position: absolute;
-      top: 16px;
-      left: 16px;
-      background: rgba(17, 22, 27, 0.9);
-      color: var(--color-gold);
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      z-index: 8;
-      pointer-events: none;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-      border: 1px solid rgba(191, 161, 95, 0.4);
-    }
-    .badge-side-base {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      background: rgba(17, 22, 27, 0.8);
-      color: #cbd5e1;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      z-index: 4;
-      pointer-events: none;
-      backdrop-filter: blur(4px);
-    }
-    .slider-container.mode-mobile .badge-side-after {
-      top: auto;
-      bottom: 14px;
-      left: 14px;
-      font-size: 10px;
-      padding: 4px 10px;
-    }
-    .slider-container.mode-mobile .badge-side-base {
-      top: auto;
-      bottom: 14px;
-      right: 14px;
-      font-size: 10px;
-      padding: 4px 10px;
-    }
-
-    /* --- MOBILE PHONE FRAME MOCKUP --- */
-    .mobile-mockup-wrapper {
-      display: none;
-      padding: 40px 20px;
-      background: #f1ede5;
+    .handle-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--gold-primary);
+      border: 2px solid #ffffff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
       justify-content: center;
-      gap: 40px;
-      align-items: start;
+      color: #0a0d12;
+      font-size: 13px;
+      font-weight: bold;
+      transition: transform 0.15s ease, background-color 0.15s ease;
     }
-    .phone-frame {
-      width: 390px;
-      max-width: 100%;
-      background: #000000;
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.25), inset 0 0 0 2px #333;
-      position: relative;
+    .split-handle:hover .handle-circle,
+    .split-handle:focus .handle-circle {
+      transform: scale(1.12);
+      background: var(--gold-light);
     }
-    .phone-notch {
-      position: absolute;
-      top: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 120px;
-      height: 24px;
-      background: #000;
-      border-radius: 12px;
-      z-index: 20;
+
+    /* Side-by-side Mobile View (Mockups) */
+    .side-by-side-container {
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto 24px;
     }
-    .phone-screen {
-      background: #ffffff;
-      border-radius: 34px;
-      overflow: hidden;
+    .side-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px;
+      text-align: center;
+    }
+    .side-card-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+    .side-card.before .side-card-title { color: var(--text-muted); }
+    .side-card.after .side-card-title { color: var(--gold-primary); }
+    .phone-mockup {
       aspect-ratio: 390 / 844;
-      position: relative;
+      max-width: 360px;
+      margin: 0 auto;
+      border: 8px solid #202632;
+      border-radius: 36px;
+      overflow: hidden;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.7);
+      background: #000;
     }
-    .phone-screen img {
+    .phone-mockup img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-    }
-    .phone-caption {
-      text-align: center;
-      font-size: 13px;
-      font-weight: 700;
-      margin-top: 14px;
-      color: var(--color-dark);
+      display: block;
     }
 
-    /* --- FULLSCREEN MODAL --- */
-    .modal-fullscreen {
+    /* Actions Footer per Comparator */
+    .comparator-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+    .comparator-instruction {
+      font-size: 12px;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .comparator-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-fullscreen {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-fullscreen:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+    .btn-page-live {
+      background: rgba(197, 160, 89, 0.12);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .btn-page-live:hover {
+      background: var(--gold-primary);
+      color: #0a0d12;
+      border-color: var(--gold-primary);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(11, 15, 18, 0.96);
-      backdrop-filter: blur(10px);
-      z-index: 99999;
-      flex-direction: column;
-      padding: 20px;
-    }
-    .modal-top-bar {
-      display: flex;
-      justify-content: space-between;
+      background: rgba(5, 7, 10, 0.95);
+      z-index: 200;
+      padding: 24px;
       align-items: center;
-      padding-bottom: 16px;
-      color: #ffffff;
-    }
-    .modal-viewport {
-      flex-grow: 1;
-      display: flex;
       justify-content: center;
+      flex-direction: column;
+    }
+    .lightbox-modal.active {
+      display: flex;
+    }
+    .lightbox-header {
+      width: 100%;
+      max-width: 1300px;
+      display: flex;
       align-items: center;
-      position: relative;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+    .lightbox-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: var(--text-main);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .lightbox-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .lightbox-toggle-btn {
+      background: var(--gold-primary);
+      color: #0a0d12;
+      border: none;
+      padding: 8px 18px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .lightbox-toggle-btn:hover {
+      background: var(--gold-light);
+    }
+    .lightbox-close-btn {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .lightbox-close-btn:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+    .lightbox-content {
+      width: 100%;
+      max-width: 1300px;
+      max-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
-    .modal-img {
+    .lightbox-content img {
       max-width: 100%;
       max-height: 85vh;
       object-fit: contain;
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-lg);
-    }
-    .modal-toggle-btn {
-      background: var(--color-gold);
-      color: #111;
-      font-weight: 700;
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-size: 14px;
-      cursor: pointer;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--border-color);
     }
 
-    /* --- FOOTER --- */
-    .pres-footer {
-      background: var(--color-dark);
-      color: #94a3b8;
-      padding: 50px 24px;
+    /* Summary Table */
+    .summary-table-section {
+      margin: 80px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 40px;
+      max-width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .summary-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      color: var(--text-main);
       text-align: center;
-      font-size: 13px;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .pres-footer strong {
-      color: #ffffff;
+    .summary-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 32px;
+    }
+    .table-responsive {
+      width: 100%;
+      max-width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      display: block;
+      box-sizing: border-box;
+    }
+    .summary-table {
+      width: 100%;
+      min-width: 580px;
+      border-collapse: collapse;
+      font-size: 13.5px;
+    }
+    .summary-table th {
+      text-align: left;
+      padding: 14px 18px;
+      background: rgba(10, 13, 18, 0.7);
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 11px;
+      border-bottom: 2px solid var(--border-color);
+    }
+    .summary-table td {
+      padding: 16px 18px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: top;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .summary-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .summary-table td strong {
+      color: var(--text-main);
+    }
+    .tag-gain {
+      display: inline-block;
+      padding: 3px 8px;
+      background: rgba(197, 160, 89, 0.15);
+      border: 1px solid rgba(197, 160, 89, 0.4);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 600;
     }
 
-    /* Responsive */
-    @media (max-width: 900px) {
-      .pres-header {
-        padding: 36px 16px 28px;
-      }
-      .pres-brand-bar {
+    /* Footer */
+    footer.site-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 12px;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 820px) {
+      .controls-bar {
         flex-direction: column;
         align-items: stretch;
-        gap: 16px;
       }
-      .pres-brand-left {
-        justify-content: flex-start;
-      }
-      .btn-demo-link {
-        width: 100%;
-        justify-content: center;
-      }
-      .pres-date-badge {
-        font-size: 11px;
-        text-align: center;
-        width: 100%;
-      }
-      .pres-intro-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .pres-main-title {
-        font-size: 25px;
-        line-height: 1.25;
-      }
-      .pres-main-lead {
-        font-size: 14.5px;
-        line-height: 1.6;
-        margin-bottom: 18px;
-      }
-      .pres-reasons-card {
-        padding: 20px 16px;
-      }
-
-      .summary-nav {
-        padding: 8px 12px;
-      }
-      .summary-container {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 8px;
-      }
-      .summary-vignettes {
-        overflow-x: auto;
-        padding-bottom: 6px;
-        width: 100%;
-        -webkit-overflow-scrolling: touch;
-      }
-      .vignette-btn {
-        padding: 6px 12px;
-        font-size: 12px;
-      }
-      .format-switcher {
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-      .format-btn {
-        justify-content: center;
-        padding: 7px 8px;
-        font-size: 12px;
-      }
-
-      .chapter-section {
-        padding: 36px 16px;
-      }
-      .chapter-title {
-        font-size: 21px;
-        line-height: 1.3;
-      }
-      .chapter-desc {
-        font-size: 14px;
-        line-height: 1.6;
-      }
-      .chapter-points-grid {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-      .point-card {
-        padding: 16px;
-      }
-
-      .comparator-toolbar {
-        padding: 12px 14px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-      }
-      .comparator-labels {
-        width: 100%;
-        display: flex;
+      .control-groups {
         justify-content: space-between;
-        align-items: center;
-        font-size: 11.5px;
-        padding-bottom: 8px;
-        border-bottom: 1px solid var(--color-border-subtle);
       }
-      .comparator-actions {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 8px;
+      .side-by-side-container {
+        grid-template-columns: 1fr;
       }
-      .ctrl-group-presets {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        width: 100%;
-        padding: 3px;
-        gap: 3px;
-      }
-      .ctrl-group-presets .ctrl-btn-preset {
-        padding: 8px 4px;
-        font-size: 12px;
-        text-align: center;
-        justify-content: center;
-      }
-      .ctrl-group-tools {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        width: 100%;
-        gap: 8px;
-      }
-      .ctrl-btn-live, .ctrl-btn-fs {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-        padding: 8px 10px;
-        font-size: 12px;
-      }
-
-      /* Badges dans le slider toujours calés en bas sur mobile pour ne jamais gêner le haut */
-      .badge-side-after {
-        top: auto;
-        bottom: 12px;
-        left: 12px;
-        font-size: 10px;
-        padding: 4px 10px;
-      }
-      .badge-side-base {
-        top: auto;
-        bottom: 12px;
-        right: 12px;
-        font-size: 10px;
-        padding: 4px 10px;
-      }
-      .slider-handle-knob {
-        width: 44px;
-        height: 44px;
-        font-size: 10px;
+      .summary-table-section {
+        padding: 24px 16px;
+        overflow: hidden;
       }
     }
-
-    @media (max-width: 600px) {
-      .slider-container.mode-mobile {
-        max-width: 100%;
-        border-radius: 16px !important;
-        border: none !important;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    @media (max-width: 480px) {
+      .hero {
+        padding: 48px 0 32px;
       }
-      .phone-notch-bar {
-        display: none !important;
+      .context-card {
+        padding: 20px;
       }
+      .state-pill {
+        font-size: 9px;
+        padding: 4px 8px;
+        top: 8px;
+      }
+      .pill-before { left: 8px; }
+      .pill-after { right: 8px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Header & Introduction -->
-  <header class="pres-header">
-    <div class="pres-header-inner">
-      <div class="pres-brand-bar">
-        <div class="pres-brand-left">
-          <img src="assets/logo.webp" alt="Watch &amp; Vintage" class="pres-brand-logo">
-          <div class="pres-brand-titles">
-            <span class="pres-brand-name">WATCH &amp; VINTAGE</span>
-            <span class="pres-brand-sub">Étude &amp; Proposition de Refonte</span>
-          </div>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand-logo">
+        <div class="brand-symbol">WV</div>
+        <div class="brand-text">
+          <span class="brand-name">Watch &amp; Vintage</span>
+          <span class="brand-sub">Atelier d'Horlogerie • Alsace</span>
         </div>
-        <div style="display: flex; align-items: center; gap: 14px; flex-wrap: wrap;">
-          <a href="/redesign/index.html" target="_blank" class="btn-demo-link">
-            <span>Visiter la démo refondue en direct</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          </a>
-          <div class="pres-date-badge">
-            Captures relevées le 7 octobre 2026 &bull; watchandvintage.fr
-          </div>
+      </a>
+      <div class="header-right">
+        <div class="header-badge">
+          Document d'Étude &amp; Refonte Digitale
         </div>
-      </div>
-
-      <div class="pres-intro-grid">
-        <div>
-          <span class="prop-pill" style="margin-bottom: 14px;">Proposition pour David Broglin</span>
-          <h1 class="pres-main-title">
-            Mettre en valeur vos montres et <span>votre travail d'atelier</span>.
-          </h1>
-          <p class="pres-main-lead">
-            Voici une proposition concrète pour moderniser le site Watch &amp; Vintage. L'idée principale : donner toute la place à vos photographies, valoriser le travail artisanal de révision effectué en Alsace, et rassurer immédiatement les passionnés d'horlogerie sur ordinateur comme sur téléphone.
-          </p>
-        </div>
-
-        <div class="pres-reasons-card">
-          <h2 class="pres-reasons-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
-            Les 3 priorités de cette refonte
-          </h2>
-          <ul class="pres-reasons-list">
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>L'atelier au premier plan :</strong> Rappeler clairement que chaque pièce est révisée, huilée et garantie 1 an par un horloger.</div>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Vos 480 avis Chrono24 :</strong> Votre note de 5.0/5 et votre statut vendeur de confiance visibles dès l'arrivée.</div>
-            </li>
-            <li>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-              <div><strong>Parfait sur smartphone :</strong> Des photos plus grandes, un zoom net sur les détails et un panier simple sans surprise.</div>
-            </li>
-          </ul>
-        </div>
+        <a href="/redesign/index.html" target="_blank" rel="noopener noreferrer" class="btn-live-demo">
+          <span>Visiter la démo en direct</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- Sticky Sommaire & Format Switcher -->
-  <nav class="summary-nav">
-    <div class="summary-container">
-      <ul class="summary-vignettes">
-        <li>
-          <a href="#chap-home" class="vignette-btn active" onclick="setActiveVignette(this)">
-            <span class="vignette-num">1</span>
-            <span>Accueil</span>
-          </a>
-        </li>
-        <li>
-          <a href="#chap-catalog" class="vignette-btn" onclick="setActiveVignette(this)">
-            <span class="vignette-num">2</span>
-            <span>Catalogue</span>
-          </a>
-        </li>
-        <li>
-          <a href="#chap-available" class="vignette-btn" onclick="setActiveVignette(this)">
-            <span class="vignette-num">3</span>
-            <span>Montre en Stock</span>
-          </a>
-        </li>
-        <li>
-          <a href="#chap-soldout" class="vignette-btn" onclick="setActiveVignette(this)">
-            <span class="vignette-num">4</span>
-            <span>Montre Sold Out</span>
-          </a>
-        </li>
-        <li>
-          <a href="#chap-cart" class="vignette-btn" onclick="setActiveVignette(this)">
-            <span class="vignette-num">5</span>
-            <span>Panier &amp; Tunnel</span>
-          </a>
-        </li>
-      </ul>
+  <!-- Main Content -->
+  <main class="container" id="top">
+    
+    <!-- Hero Section -->
+    <section class="hero">
+      <span class="hero-tag">Présentation Comparative Pour David Broglin</span>
+      <h1 class="hero-title">
+        Refonte Digitale : <span>Avant / Proposition</span>
+      </h1>
+      <p class="hero-intro">
+        Analyse visuelle écran par écran entre le site actuellement en ligne (<a href="https://www.watchandvintage.fr/en/" target="_blank" rel="noopener noreferrer" style="color:var(--gold-light);text-decoration:underline;">watchandvintage.fr</a>) et la proposition de nouvelle boutique, pensée pour valoriser vos garde-temps révisés et sécuriser l'acte d'achat d'un collectionneur.
+      </p>
+    </section>
 
-      <!-- Mode Switcher: Desktop vs Mobile, Normal vs Full -->
-      <div class="format-switcher">
-        <button class="format-btn active" id="btn-desktop" onclick="setDeviceMode('desktop')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          Ordinateur (1440px)
+    <!-- Context & Objectives -->
+    <section class="context-card">
+      <h3 style="font-family:var(--font-serif); font-size:24px; color:var(--text-main); letter-spacing:0.05em; text-transform:uppercase;">
+        Ce qui a été fait et pourquoi
+      </h3>
+      <p style="color:var(--text-muted); font-size:14.5px; margin-top:8px; line-height:1.65;">
+        Watch &amp; Vintage (fondé par David Broglin en Alsace) sélectionne, révise et garantit des montres mécaniques d'exception des années 1950 aux années 1980 (Seiko, Citizen, Longines, Omega), dont les prix varient de 300 € à 1 500 €. Sur ces pièces vintage uniques, l'acheteur a besoin d'une confiance absolue immédiate. L'ancien site masquait le sérieux de l'atelier derrière une mise en page compacte et des photographies sous-dimensionnées.
+      </p>
+
+      <div class="context-grid">
+        <div class="context-item">
+          <h4>1. Mettre le travail d'atelier au premier plan</h4>
+          <p>
+            Rappeler clairement et dès l'arrivée que chaque pièce est révisée (démontage, nettoyage ultrasons, huiles Moebius, contrôle d'amplitude) et couverte par une garantie mécanique écrite de 1 an.
+          </p>
+        </div>
+
+        <div class="context-item">
+          <h4>2. Valoriser la réputation Chrono24 (480 avis 5.0/5)</h4>
+          <p>
+            Votre statut de vendeur de confiance 5.0/5 sur 480 transactions vérifiées est votre plus grand atout : la proposition l'installe en tête de page et au panier pour lever toute hésitation.
+          </p>
+        </div>
+
+        <div class="context-item">
+          <h4>3. Sublimer les photos et fluidifier le mobile</h4>
+          <p>
+            Grandes galeries haute résolution avec zoom net sur les détails de cadran, filtres de catalogue instantanés, et panier clair avec expédition assurée annoncée d'emblée.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Controls Bar (Sticky) -->
+    <section class="controls-bar" id="controls">
+      <span class="controls-title">Affichage des Captures</span>
+
+      <div class="control-groups">
+        <!-- Device Filter -->
+        <div class="segmented-control" role="group" aria-label="Format d'écran">
+          <button class="segmented-btn active" data-device="desktop" onclick="setGlobalDevice('desktop')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Ordinateur (1440×900)
+          </button>
+          <button class="segmented-btn" data-device="mobile" onclick="setGlobalDevice('mobile')">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+            Téléphone (390×844)
+          </button>
+        </div>
+
+        <!-- Mode Filter (Slider vs Side-by-side) -->
+        <div class="segmented-control" role="group" aria-label="Mode comparateur">
+          <button class="segmented-btn active" data-mode="slider" onclick="setGlobalMode('slider')">
+            ↔ Curseur interactif
+          </button>
+          <button class="segmented-btn" data-mode="side" onclick="setGlobalMode('side')">
+            📱 Vue côte à côte
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Table of Contents in Thumbnails -->
+    <section class="toc-section">
+      <h2 class="toc-title">Sommaire des Écrans Comparés</h2>
+      <div class="toc-grid">
+        <a href="#chapitre-1" class="toc-card">
+          <img src="assets/captures/after/desktop/home.webp" alt="Accueil" class="toc-thumb">
+          <span class="toc-num">Écran 01</span>
+          <span class="toc-heading">Page d'Accueil</span>
+        </a>
+        <a href="#chapitre-2" class="toc-card">
+          <img src="assets/captures/after/desktop/catalog.webp" alt="Catalogue Watches" class="toc-thumb">
+          <span class="toc-num">Écran 02</span>
+          <span class="toc-heading">Catalogue &amp; Filtres</span>
+        </a>
+        <a href="#chapitre-3" class="toc-card">
+          <img src="assets/captures/after/desktop/product_available.webp" alt="Fiche Montre en Stock" class="toc-thumb">
+          <span class="toc-num">Écran 03</span>
+          <span class="toc-heading">Fiche Montre (Stock)</span>
+        </a>
+        <a href="#chapitre-4" class="toc-card">
+          <img src="assets/captures/after/desktop/product_soldout.webp" alt="Fiche Montre Vendue" class="toc-thumb">
+          <span class="toc-num">Écran 04</span>
+          <span class="toc-heading">Fiche Montre (Sold Out)</span>
+        </a>
+        <a href="#chapitre-5" class="toc-card">
+          <img src="assets/captures/after/desktop/cart.webp" alt="Panier & Commande" class="toc-thumb">
+          <span class="toc-num">Écran 05</span>
+          <span class="toc-heading">Panier &amp; Commande</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- CHAPITRE 1 : ACCUEIL -->
+    <!-- ======================================================== -->
+    <section class="screen-chapter" id="chapitre-1">
+      <div class="chapter-header">
+        <span class="chapter-badge">Écran 01 • Immersion &amp; Savoir-Faire</span>
+        <h2 class="chapter-title">Page d'Accueil — Un Premier Regard Clair et Soigné</h2>
+        <p class="chapter-explanation">
+          Transformer une vitrine web tassée en une galerie horlogère noble qui met en scène l'atelier et rassure le collectionneur dès les premières secondes.
+        </p>
+
+        <div class="points-grid">
+          <div class="point-card">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <h5>Photographies au premier plan</h5>
+              <p>Mise en page épurée qui laisse respirer chaque modèle, sans fioritures superflues, pour apprécier immédiatement l'état du cadran et du boîtier.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <h5>Garanties et réassurance visibles</h5>
+              <p>Garantie mécanique 1 an, livraison avec assurance et statut Chrono24 5.0/5 (480 avis vérifiés) affichés en tête sans forcer le visiteur à chercher.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <h5>Le travail de l'atelier en Alsace</h5>
+              <p>Explication concrète du protocole de révision de David Broglin (démontage, nettoyage ultrasons, huilage Moebius, réglage de précision).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparator -->
+      <div class="comparator-wrapper" data-screen="home">
+        <!-- Slider Mode -->
+        <div class="split-slider desktop-view" id="slider-home">
+          <div class="split-layer layer-after">
+            <img src="assets/captures/after/desktop/home.webp" alt="Proposition - Accueil" class="split-img img-after">
+            <span class="state-pill pill-after">PROPOSITION</span>
+          </div>
+          <div class="split-layer layer-before">
+            <img src="assets/captures/before/desktop/home.webp" alt="Avant - Accueil" class="split-img img-before">
+            <span class="state-pill pill-before">AVANT (En ligne)</span>
+          </div>
+          <div class="split-handle" tabindex="0" role="slider" aria-valuenow="50" aria-label="Curseur comparateur">
+            <div class="handle-circle">↔</div>
+          </div>
+        </div>
+
+        <!-- Side-by-side Mode (Mobile view) -->
+        <div class="side-by-side-container" id="side-home">
+          <div class="side-card before">
+            <div class="side-card-title">Site Actuel (En ligne)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/before/mobile/home.webp" alt="Avant - Accueil mobile">
+            </div>
+          </div>
+          <div class="side-card after">
+            <div class="side-card-title">Proposition (Nouvelle version)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/after/mobile/home.webp" alt="Proposition - Accueil mobile">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparator-footer">
+        <span class="comparator-instruction">
+          Glissez le curseur au doigt ou à la souris pour comparer. Utilisez les flèches du clavier ◀ ▶ pour un réglage fin.
+        </span>
+        <div class="comparator-tools">
+          <a href="/redesign/index.html" target="_blank" rel="noopener noreferrer" class="btn-page-live">
+            <span>Tester en direct ↗</span>
+          </a>
+          <button class="btn-fullscreen" onclick="openLightbox('home', 'Page d\'Accueil')">
+            ⤢ Plein écran
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- CHAPITRE 2 : CATALOGUE -->
+    <!-- ======================================================== -->
+    <section class="screen-chapter" id="chapitre-2">
+      <div class="chapter-header">
+        <span class="chapter-badge">Écran 02 • Parcours &amp; Filtrage</span>
+        <h2 class="chapter-title">Catalogue « Watches » — Trouver sa Montre par Marque ou Budget</h2>
+        <p class="chapter-explanation">
+          Chaque montre ancienne est une pièce unique : la refonte apporte des filtres instantanés par manufacture et sépare nettement les montres disponibles des pièces archivées.
+        </p>
+
+        <div class="points-grid">
+          <div class="point-card">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <h5>Filtres simples et utiles</h5>
+              <p>Tri direct par manufacture (Seiko, Longines, Citizen, Omega), par décennie (années 60, 70) ou par tranche de prix, sans recharger la page.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <h5>Séparation nette des pièces vendues</h5>
+              <p>Les montres « Sold Out » sont grisées sobrement pour ne pas encombrer le regard des clients qui cherchent une montre à acheter aujourd'hui.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <h5>Détails clés sous chaque photo</h5>
+              <p>Calibre mécanique, diamètre en mm, année exacte et date de révision indiqués sobrement pour comparer d'un seul coup d'œil.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparator -->
+      <div class="comparator-wrapper" data-screen="catalog">
+        <div class="split-slider desktop-view" id="slider-catalog">
+          <div class="split-layer layer-after">
+            <img src="assets/captures/after/desktop/catalog.webp" alt="Proposition - Catalogue" class="split-img img-after">
+            <span class="state-pill pill-after">PROPOSITION</span>
+          </div>
+          <div class="split-layer layer-before">
+            <img src="assets/captures/before/desktop/catalog.webp" alt="Avant - Catalogue" class="split-img img-before">
+            <span class="state-pill pill-before">AVANT (En ligne)</span>
+          </div>
+          <div class="split-handle" tabindex="0" role="slider" aria-valuenow="50" aria-label="Curseur comparateur">
+            <div class="handle-circle">↔</div>
+          </div>
+        </div>
+
+        <div class="side-by-side-container" id="side-catalog">
+          <div class="side-card before">
+            <div class="side-card-title">Site Actuel (En ligne)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/before/mobile/catalog.webp" alt="Avant - Catalogue mobile">
+            </div>
+          </div>
+          <div class="side-card after">
+            <div class="side-card-title">Proposition (Nouvelle version)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/after/mobile/catalog.webp" alt="Proposition - Catalogue mobile">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparator-footer">
+        <span class="comparator-instruction">
+          Glissez le curseur pour observer les cartes aérées, les badges de statut et la clarté des filtres.
+        </span>
+        <div class="comparator-tools">
+          <a href="/redesign/catalog.html" target="_blank" rel="noopener noreferrer" class="btn-page-live">
+            <span>Tester en direct ↗</span>
+          </a>
+          <button class="btn-fullscreen" onclick="openLightbox('catalog', 'Catalogue Watches')">
+            ⤢ Plein écran
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- CHAPITRE 3 : FICHE MONTRE DISPONIBLE -->
+    <!-- ======================================================== -->
+    <section class="screen-chapter" id="chapitre-3">
+      <div class="chapter-header">
+        <span class="chapter-badge">Écran 03 • Inspection &amp; Transparence</span>
+        <h2 class="chapter-title">Citizen Date Flake 1966 — Inspecter Chaque Détail Avant d'Acheter</h2>
+        <p class="chapter-explanation">
+          L'achat d'une montre de plus de 50 ans demande une transparence totale : zoom précis sur le cadran, fiche technique complète et réassurance claire.
+        </p>
+
+        <div class="points-grid">
+          <div class="point-card">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <h5>Galerie 8 photos avec loupe d'inspection</h5>
+              <p>Toutes les photographies réelles sous chaque angle (cadran, profil, couronne, fond de boîte, calibre 2710) avec zoom net au survol.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <h5>Fiche technique détaillée</h5>
+              <p>Calibre mécanique, alternances 18 000 alt/h, diamètre 38 mm, verre neuf, bracelet cuir neuf et état documenté avec honnêteté.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <h5>Bouton d'achat accessible au pouce</h5>
+              <p>Prix clair (340,00 €), rappel de la livraison assurée et barre d'action mobile ancrée évitant les allers-retours au défilement.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparator -->
+      <div class="comparator-wrapper" data-screen="product_available">
+        <div class="split-slider desktop-view" id="slider-product_available">
+          <div class="split-layer layer-after">
+            <img src="assets/captures/after/desktop/product_available.webp" alt="Proposition - Fiche Produit Disponible" class="split-img img-after">
+            <span class="state-pill pill-after">PROPOSITION</span>
+          </div>
+          <div class="split-layer layer-before">
+            <img src="assets/captures/before/desktop/product_available.webp" alt="Avant - Fiche Produit Disponible" class="split-img img-before">
+            <span class="state-pill pill-before">AVANT (En ligne)</span>
+          </div>
+          <div class="split-handle" tabindex="0" role="slider" aria-valuenow="50" aria-label="Curseur comparateur">
+            <div class="handle-circle">↔</div>
+          </div>
+        </div>
+
+        <div class="side-by-side-container" id="side-product_available">
+          <div class="side-card before">
+            <div class="side-card-title">Site Actuel (En ligne)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/before/mobile/product_available.webp" alt="Avant - Fiche produit mobile">
+            </div>
+          </div>
+          <div class="side-card after">
+            <div class="side-card-title">Proposition (Nouvelle version)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/after/mobile/product_available.webp" alt="Proposition - Fiche produit mobile">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparator-footer">
+        <span class="comparator-instruction">
+          Glissez le curseur pour observer la taille des photos, la note d'atelier et la lisibilité des spécifications.
+        </span>
+        <div class="comparator-tools">
+          <a href="/redesign/product-available.html" target="_blank" rel="noopener noreferrer" class="btn-page-live">
+            <span>Tester en direct ↗</span>
+          </a>
+          <button class="btn-fullscreen" onclick="openLightbox('product_available', 'Citizen Date Flake 1966')">
+            ⤢ Plein écran
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- CHAPITRE 4 : FICHE MONTRE SOLD OUT -->
+    <!-- ======================================================== -->
+    <section class="screen-chapter" id="chapitre-4">
+      <div class="chapter-header">
+        <span class="chapter-badge">Écran 04 • Mémoire &amp; Orientation</span>
+        <h2 class="chapter-title">Longines Ultra-Chron 1967 (Sold Out) — Conserver la Pièce en Archive</h2>
+        <p class="chapter-explanation">
+          Une pièce vendue fait partie de l'histoire de la boutique : au lieu d'un bouton désactivé sans issue, la refonte conserve la cote et oriente le collectionneur.
+        </p>
+
+        <div class="points-grid">
+          <div class="point-card">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <h5>Archive historique et cote marchande</h5>
+              <p>Le prix réel de vente (790,00 €) et les caractéristiques restent visibles comme référence pour les amateurs de calibres Hi-Beat.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <h5>Demande de recherche personnalisée</h5>
+              <p>Un formulaire sobre permet au visiteur de vous contacter directement s'il cherche une pièce identique ou similaire.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <h5>Suggestions de montres en stock</h5>
+              <p>Présentation immédiate d'autres montres disponibles dans le même esprit (Longines Admiral, Citizen Flake) pour prolonger la visite.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparator -->
+      <div class="comparator-wrapper" data-screen="product_soldout">
+        <div class="split-slider desktop-view" id="slider-product_soldout">
+          <div class="split-layer layer-after">
+            <img src="assets/captures/after/desktop/product_soldout.webp" alt="Proposition - Montre Vendue" class="split-img img-after">
+            <span class="state-pill pill-after">PROPOSITION</span>
+          </div>
+          <div class="split-layer layer-before">
+            <img src="assets/captures/before/desktop/product_soldout.webp" alt="Avant - Montre Vendue" class="split-img img-before">
+            <span class="state-pill pill-before">AVANT (En ligne)</span>
+          </div>
+          <div class="split-handle" tabindex="0" role="slider" aria-valuenow="50" aria-label="Curseur comparateur">
+            <div class="handle-circle">↔</div>
+          </div>
+        </div>
+
+        <div class="side-by-side-container" id="side-product_soldout">
+          <div class="side-card before">
+            <div class="side-card-title">Site Actuel (En ligne)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/before/mobile/product_soldout.webp" alt="Avant - Montre vendue mobile">
+            </div>
+          </div>
+          <div class="side-card after">
+            <div class="side-card-title">Proposition (Nouvelle version)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/after/mobile/product_soldout.webp" alt="Proposition - Montre vendue mobile">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparator-footer">
+        <span class="comparator-instruction">
+          Comparez le cul-de-sac de l'ancien site face à l'espace archive et sourcing de la proposition.
+        </span>
+        <div class="comparator-tools">
+          <a href="/redesign/product-soldout.html" target="_blank" rel="noopener noreferrer" class="btn-page-live">
+            <span>Tester en direct ↗</span>
+          </a>
+          <button class="btn-fullscreen" onclick="openLightbox('product_soldout', 'Longines Ultra-Chron 1967')">
+            ⤢ Plein écran
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- CHAPITRE 5 : PANIER & COMMANDE -->
+    <!-- ======================================================== -->
+    <section class="screen-chapter" id="chapitre-5">
+      <div class="chapter-header">
+        <span class="chapter-badge">Écran 05 • Rassurance &amp; Commande</span>
+        <h2 class="chapter-title">Panier &amp; Commande — Clarté Totale sur la Livraison et le Règlement</h2>
+        <p class="chapter-explanation">
+          Au moment de valider, tout doit être simple et rassurant : le montant total est affiché sans surprise, l'assurance est annoncée et le paiement est direct.
+        </p>
+
+        <div class="points-grid">
+          <div class="point-card">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <h5>Récapitulatif visuel et garantie rappelée</h5>
+              <p>La montre reste visible avec sa photographie, son calibre et le rappel clair : « Garantie mécanique 1 an incluse sans surcoût ».</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <h5>Frais d'expédition assurée précisés</h5>
+              <p>Frais de port de 18,00 € annoncés dès le début, avec couverture intégrale de la valeur de la montre en cas d'aléa postal.</p>
+            </div>
+          </div>
+          <div class="point-card">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <h5>Règlement sécurisé multi-options</h5>
+              <p>Paiement par Carte bancaire sécurisée (Visa, Mastercard, Amex), PayPal ou virement bancaire pour les collectionneurs qui le préfèrent.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparator -->
+      <div class="comparator-wrapper" data-screen="cart">
+        <div class="split-slider desktop-view" id="slider-cart">
+          <div class="split-layer layer-after">
+            <img src="assets/captures/after/desktop/cart.webp" alt="Proposition - Panier" class="split-img img-after">
+            <span class="state-pill pill-after">PROPOSITION</span>
+          </div>
+          <div class="split-layer layer-before">
+            <img src="assets/captures/before/desktop/cart.webp" alt="Avant - Panier" class="split-img img-before">
+            <span class="state-pill pill-before">AVANT (En ligne)</span>
+          </div>
+          <div class="split-handle" tabindex="0" role="slider" aria-valuenow="50" aria-label="Curseur comparateur">
+            <div class="handle-circle">↔</div>
+          </div>
+        </div>
+
+        <div class="side-by-side-container" id="side-cart">
+          <div class="side-card before">
+            <div class="side-card-title">Site Actuel (En ligne)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/before/mobile/cart.webp" alt="Avant - Panier mobile">
+            </div>
+          </div>
+          <div class="side-card after">
+            <div class="side-card-title">Proposition (Nouvelle version)</div>
+            <div class="phone-mockup">
+              <img src="assets/captures/after/mobile/cart.webp" alt="Proposition - Panier mobile">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="comparator-footer">
+        <span class="comparator-instruction">
+          Glissez le curseur pour observer la transparence du calcul total (358,00 €) et les réassurances atelier.
+        </span>
+        <div class="comparator-tools">
+          <a href="/redesign/cart.html" target="_blank" rel="noopener noreferrer" class="btn-page-live">
+            <span>Tester en direct ↗</span>
+          </a>
+          <button class="btn-fullscreen" onclick="openLightbox('cart', 'Panier & Commande')">
+            ⤢ Plein écran
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- SYNTHESE & BILAN -->
+    <!-- ======================================================== -->
+    <section class="summary-table-section">
+      <h3 class="summary-title">Synthèse des Améliorations Concrètes</h3>
+      <p class="summary-subtitle">
+        Bilan des 5 piliers de présentation comparés entre la version en ligne et la proposition.
+      </p>
+
+      <div class="table-responsive">
+        <table class="summary-table">
+          <thead>
+            <tr>
+              <th>Écran</th>
+              <th>Site Actuel (En ligne)</th>
+              <th>Proposition de Refonte</th>
+              <th>Bénéfice Client &amp; Vente</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>01. Accueil</strong></td>
+              <td>Bandeau compact, photos sous-dimensionnées, savoir-faire d'atelier peu visible.</td>
+              <td>Galerie épurée, travail de révision en Alsace expliqué, note Chrono24 5.0/5 mise en avant.</td>
+              <td><span class="tag-gain">+ Confiance immédiate</span></td>
+            </tr>
+            <tr>
+              <td><strong>02. Catalogue</strong></td>
+              <td>Pièces disponibles et vendues mélangées sans hiérarchie, filtres limités.</td>
+              <td>Filtres instantanés (marque, prix, décennie), pièces vendues grisées sobrement, calibres lisibles.</td>
+              <td><span class="tag-gain">+ Navigation fluide</span></td>
+            </tr>
+            <tr>
+              <td><strong>03. Fiche Montre (Stock)</strong></td>
+              <td>Photos réduites sans zoom, texte compact, bouton peu mis en valeur sur mobile.</td>
+              <td>Galerie HD avec loupe d'inspection, caractéristiques techniques complètes, CTA accessible au pouce.</td>
+              <td><span class="tag-gain">+ Décision d'achat éclairée</span></td>
+            </tr>
+            <tr>
+              <td><strong>04. Fiche Montre (Vendue)</strong></td>
+              <td>Bouton désactivé sans solution alternative, pièce perdue pour la navigation.</td>
+              <td>Fiche conservée comme archive de cote, module de recherche sur-mesure et montres similaires en stock.</td>
+              <td><span class="tag-gain">+ Rétention &amp; Sourcing</span></td>
+            </tr>
+            <tr>
+              <td><strong>05. Panier &amp; Commande</strong></td>
+              <td>Frais d'assurance peu explicites, étapes de validation peu structurées.</td>
+              <td>Récapitulatif visuel complet, livraison assurée 18 € annoncée d'emblée, garantie 1 an rappelée.</td>
+              <td><span class="tag-gain">- Abandons au paiement</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightbox">
+    <div class="lightbox-header">
+      <h4 class="lightbox-title" id="lightbox-title">Aperçu Plein Écran</h4>
+      <div class="lightbox-controls">
+        <button class="lightbox-toggle-btn" id="lightbox-toggle" onclick="toggleLightboxState()">
+          Afficher : AVANT
         </button>
-        <button class="format-btn" id="btn-mobile" onclick="setDeviceMode('mobile')">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          Téléphone (390px)
-        </button>
+        <button class="lightbox-close-btn" onclick="closeLightbox()" title="Fermer (Échap)">✕</button>
       </div>
     </div>
-  </nav>
-
-  <!-- =========================================================================
-       CHAPITRE 1 : ACCUEIL
-       ========================================================================= -->
-  <section class="chapter-section" id="chap-home">
-    <div class="chapter-header">
-      <span class="chapter-eyebrow">Page d'accueil</span>
-      <h2 class="chapter-title">Accueil : un premier regard clair et soigné sur votre collection</h2>
-      <p class="chapter-desc">
-        Dès l'arrivée sur le site, l'amateur de montres vintage doit être accueilli avec le sérieux d'un véritable atelier d'horlogerie : de grandes photographies nettes, des informations précises et vos garanties bien visibles.
-      </p>
-    </div>
-
-    <div class="chapter-points-grid">
-      <div class="point-card">
-        <div class="point-card-num">Point 1</div>
-        <h3 class="point-card-title">Vos photographies au premier plan</h3>
-        <p class="point-card-text">
-          Une mise en page aérée qui laisse respirer chaque modèle, sans encombrement inutile, pour apprécier immédiatement l'état du cadran et de la boîte.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 2</div>
-        <h3 class="point-card-title">Vos garanties visibles d'emblée</h3>
-        <p class="point-card-text">
-          Garantie mécanique de 1 an sur chaque pièce, livraison soignée avec assurance et votre note Chrono24 de 5.0/5 sur 480 avis réels.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 3</div>
-        <h3 class="point-card-title">Le travail de l'atelier en Alsace</h3>
-        <p class="point-card-text">
-          Une explication concrète de votre révision : démontage, nettoyage aux ultrasons, huilage et réglage de précision avant chaque mise en vente.
-        </p>
-      </div>
-    </div>
-
-    <!-- COMPARATOR 1 -->
-    <div class="comparator-wrapper" data-screen="home">
-      <div class="comparator-toolbar">
-        <div class="comparator-labels">
-          <span class="label-after">◀ Refonte proposée</span>
-          <span class="label-before">Site actuel ▶</span>
-        </div>
-        <div class="comparator-actions">
-          <div class="ctrl-group-presets">
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 0)" title="Afficher l'existant à 100%">◀ Base</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 50)" title="Vue comparaison 50/50">50 / 50</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('home', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
-          </div>
-          <div class="ctrl-group-tools">
-            <a href="/redesign/index.html" target="_blank" class="ctrl-btn-live">
-              <span>Tester en direct</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('home')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>Plein écran</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Container with Clip-Path -->
-      <div class="slider-container mode-desktop" id="slider-home">
-        <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Refonte</span>
-        <span class="badge-side-base">Actuel ▶</span>
-        <img src="assets/captures/before/desktop/home.webp" alt="Accueil Version de base" class="slider-img slider-img-base">
-        <img src="assets/captures/after/desktop/home.webp" alt="Accueil Version faite" class="slider-img slider-img-after">
-        <div class="slider-handle">
-          <div class="slider-handle-knob" title="Glissez pour comparer">
-            <span>◀</span>
-            <span style="font-size: 8px; opacity: 0.8;">VS</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       CHAPITRE 2 : CATALOGUE
-       ========================================================================= -->
-  <section class="chapter-section" id="chap-catalog">
-    <div class="chapter-header">
-      <span class="chapter-eyebrow">Catalogue des montres</span>
-      <h2 class="chapter-title">Catalogue : trouver rapidement sa montre par marque ou budget</h2>
-      <p class="chapter-desc">
-        Chaque montre ancienne est une pièce unique. Pour que le visiteur trouve facilement ce qu'il cherche sans être submergé, la présentation est épurée, le tri est immédiat et les pièces déjà vendues sont discrètement séparées.
-      </p>
-    </div>
-
-    <div class="chapter-points-grid">
-      <div class="point-card">
-        <div class="point-card-num">Point 1</div>
-        <h3 class="point-card-title">Filtres simples et utiles</h3>
-        <p class="point-card-text">
-          Tri direct par manufacture (Seiko, Longines, Citizen, Omega), par budget ou par décennie (années 60, 70), sans avoir besoin de recharger la page.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 2</div>
-        <h3 class="point-card-title">Séparation nette des pièces vendues</h3>
-        <p class="point-card-text">
-          Les montres « Sold Out » sont grisées sobrement pour ne pas encombrer le regard de ceux qui souhaitent acheter aujourd'hui.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 3</div>
-        <h3 class="point-card-title">Les informations clés sur chaque vignette</h3>
-        <p class="point-card-text">
-          Calibre, diamètre du boîtier, année de fabrication et date de révision indiqués de manière sobre sous chaque photographie.
-        </p>
-      </div>
-    </div>
-
-    <!-- COMPARATOR 2 -->
-    <div class="comparator-wrapper" data-screen="catalog">
-      <div class="comparator-toolbar">
-        <div class="comparator-labels">
-          <span class="label-after">◀ Refonte proposée</span>
-          <span class="label-before">Site actuel ▶</span>
-        </div>
-        <div class="comparator-actions">
-          <div class="ctrl-group-presets">
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 0)" title="Afficher l'existant à 100%">◀ Base</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 50)" title="Vue comparaison 50/50">50 / 50</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('catalog', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
-          </div>
-          <div class="ctrl-group-tools">
-            <a href="/redesign/catalog.html" target="_blank" class="ctrl-btn-live">
-              <span>Tester en direct</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('catalog')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>Plein écran</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Container with Clip-Path -->
-      <div class="slider-container mode-desktop" id="slider-catalog">
-        <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Refonte</span>
-        <span class="badge-side-base">Actuel ▶</span>
-        <img src="assets/captures/before/desktop/catalog.webp" alt="Catalogue Version de base" class="slider-img slider-img-base">
-        <img src="assets/captures/after/desktop/catalog.webp" alt="Catalogue Version faite" class="slider-img slider-img-after">
-        <div class="slider-handle">
-          <div class="slider-handle-knob" title="Glissez pour comparer">
-            <span>◀</span>
-            <span style="font-size: 8px; opacity: 0.8;">VS</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       CHAPITRE 3 : FICHE MONTRE DISPONIBLE
-       ========================================================================= -->
-  <section class="chapter-section" id="chap-available">
-    <div class="chapter-header">
-      <span class="chapter-eyebrow">Fiche montre disponible</span>
-      <h2 class="chapter-title">Citizen Date Flake 1966 : inspecter chaque détail avant d'acheter</h2>
-      <p class="chapter-desc">
-        Pour une pièce mécanique de plus de cinquante ans, l'acheteur a besoin de confiance. Il doit pouvoir examiner chaque angle du cadran, du boîtier et du calibre, et lire des caractéristiques techniques complètes sans ambiguïté.
-      </p>
-    </div>
-
-    <div class="chapter-points-grid">
-      <div class="point-card">
-        <div class="point-card-num">Point 1</div>
-        <h3 class="point-card-title">Galerie photo complète avec zoom</h3>
-        <p class="point-card-text">
-          8 photographies réelles sous tous les angles (cadran, profil, couronne, fond de boîte, calibre 2710) avec un zoom précis au survol.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 2</div>
-        <h3 class="point-card-title">Fiche technique claire et détaillée</h3>
-        <p class="point-card-text">
-          Toutes les données essentielles : manufacture, calibre 2710, fréquence 18 000 alt/h, diamètre 38 mm, verre neuf, bracelet cuir neuf et état documenté.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 3</div>
-        <h3 class="point-card-title">Bouton de commande direct et rassurant</h3>
-        <p class="point-card-text">
-          Prix affiché sans équivoque (340,00 €), rappel de la livraison assurée et bouton clair pour commander facilement sur ordinateur comme sur téléphone.
-        </p>
-      </div>
-    </div>
-
-    <!-- COMPARATOR 3 -->
-    <div class="comparator-wrapper" data-screen="product_available">
-      <div class="comparator-toolbar">
-        <div class="comparator-labels">
-          <span class="label-after">◀ Refonte proposée</span>
-          <span class="label-before">Site actuel ▶</span>
-        </div>
-        <div class="comparator-actions">
-          <div class="ctrl-group-presets">
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 0)" title="Afficher l'existant à 100%">◀ Base</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 50)" title="Vue comparaison 50/50">50 / 50</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_available', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
-          </div>
-          <div class="ctrl-group-tools">
-            <a href="/redesign/product-available.html" target="_blank" class="ctrl-btn-live">
-              <span>Tester en direct</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('product_available')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>Plein écran</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Container with Clip-Path -->
-      <div class="slider-container mode-desktop" id="slider-product_available">
-        <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Refonte</span>
-        <span class="badge-side-base">Actuel ▶</span>
-        <img src="assets/captures/before/desktop/product_available.webp" alt="Citizen Date Flake Version de base" class="slider-img slider-img-base">
-        <img src="assets/captures/after/desktop/product_available.webp" alt="Citizen Date Flake Version faite" class="slider-img slider-img-after">
-        <div class="slider-handle">
-          <div class="slider-handle-knob" title="Glissez pour comparer">
-            <span>◀</span>
-            <span style="font-size: 8px; opacity: 0.8;">VS</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       CHAPITRE 4 : FICHE MONTRE SOLD OUT
-       ========================================================================= -->
-  <section class="chapter-section" id="chap-soldout">
-    <div class="chapter-header">
-      <span class="chapter-eyebrow">Montre vendue (Sold Out)</span>
-      <h2 class="chapter-title">Longines Ultra-Chron 1967 : conserver la pièce en archive et orienter le client</h2>
-      <p class="chapter-desc">
-        Une montre vendue fait partie de l'histoire de la boutique et témoigne de la qualité de vos pièces. Plutôt que de laisser le visiteur devant une impasse, la fiche est conservée comme référence et propose une alternative naturelle.
-      </p>
-    </div>
-
-    <div class="chapter-points-grid">
-      <div class="point-card">
-        <div class="point-card-num">Point 1</div>
-        <h3 class="point-card-title">Archive et cote conservées</h3>
-        <p class="point-card-text">
-          Le prix réel de vente (790,00 €) et les caractéristiques restent visibles comme repère historique pour les passionnés.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 2</div>
-        <h3 class="point-card-title">Formulaire pour recherche personnalisée</h3>
-        <p class="point-card-text">
-          Un encadré simple invite le visiteur à vous contacter s'il recherche un modèle similaire ou un calibre équivalent.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 3</div>
-        <h3 class="point-card-title">Suggestions de montres disponibles</h3>
-        <p class="point-card-text">
-          Présentation directe de modèles comparables actuellement en stock pour prolonger la visite en toute fluidité.
-        </p>
-      </div>
-    </div>
-
-    <!-- COMPARATOR 4 -->
-    <div class="comparator-wrapper" data-screen="product_soldout">
-      <div class="comparator-toolbar">
-        <div class="comparator-labels">
-          <span class="label-after">◀ Refonte proposée</span>
-          <span class="label-before">Site actuel ▶</span>
-        </div>
-        <div class="comparator-actions">
-          <div class="ctrl-group-presets">
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 0)" title="Afficher l'existant à 100%">◀ Base</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 50)" title="Vue comparaison 50/50">50 / 50</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('product_soldout', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
-          </div>
-          <div class="ctrl-group-tools">
-            <a href="/redesign/product-soldout.html" target="_blank" class="ctrl-btn-live">
-              <span>Tester en direct</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('product_soldout')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>Plein écran</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Container with Clip-Path -->
-      <div class="slider-container mode-desktop" id="slider-product_soldout">
-        <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Refonte</span>
-        <span class="badge-side-base">Actuel ▶</span>
-        <img src="assets/captures/before/desktop/product_soldout.webp" alt="Longines Ultra-Chron Version de base" class="slider-img slider-img-base">
-        <img src="assets/captures/after/desktop/product_soldout.webp" alt="Longines Ultra-Chron Version faite" class="slider-img slider-img-after">
-        <div class="slider-handle">
-          <div class="slider-handle-knob" title="Glissez pour comparer">
-            <span>◀</span>
-            <span style="font-size: 8px; opacity: 0.8;">VS</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================================
-       CHAPITRE 5 : PANIER & CHECKOUT
-       ========================================================================= -->
-  <section class="chapter-section" id="chap-cart">
-    <div class="chapter-header">
-      <span class="chapter-eyebrow">Panier &amp; commande</span>
-      <h2 class="chapter-title">Panier : clarté totale sur la livraison et le règlement</h2>
-      <p class="chapter-desc">
-        Au moment de valider une montre de valeur, chaque détail compte : les frais de port avec assurance sont affichés sans détour, la garantie est rappelée et le règlement s'effectue en toute simplicité.
-      </p>
-    </div>
-
-    <div class="chapter-points-grid">
-      <div class="point-card">
-        <div class="point-card-num">Point 1</div>
-        <h3 class="point-card-title">Récapitulatif visuel et garantie rappelée</h3>
-        <p class="point-card-text">
-          La montre reste visible avec sa photographie, son calibre et la mention claire : « Garantie mécanique 1 an incluse ».
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 2</div>
-        <h3 class="point-card-title">Livraison assurée annoncée d'emblée</h3>
-        <p class="point-card-text">
-          Frais de port de 18,00 € précisés dès le début, avec couverture intégrale de la valeur de la montre et remise contre signature.
-        </p>
-      </div>
-      <div class="point-card">
-        <div class="point-card-num">Point 3</div>
-        <h3 class="point-card-title">Moyens de règlement simples</h3>
-        <p class="point-card-text">
-          Paiement sécurisé par carte bancaire, PayPal ou virement bancaire pour les collectionneurs qui le souhaitent.
-        </p>
-      </div>
-    </div>
-
-    <!-- COMPARATOR 5 -->
-    <div class="comparator-wrapper" data-screen="cart">
-      <div class="comparator-toolbar">
-        <div class="comparator-labels">
-          <span class="label-after">◀ Refonte proposée</span>
-          <span class="label-before">Site actuel ▶</span>
-        </div>
-        <div class="comparator-actions">
-          <div class="ctrl-group-presets">
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 0)" title="Afficher l'existant à 100%">◀ Base</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 50)" title="Vue comparaison 50/50">50 / 50</button>
-            <button class="ctrl-btn-preset" onclick="setSliderPercent('cart', 100)" title="Afficher la refonte à 100%">Refonte ▶</button>
-          </div>
-          <div class="ctrl-group-tools">
-            <a href="/redesign/cart.html" target="_blank" class="ctrl-btn-live">
-              <span>Tester en direct</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-            </a>
-            <button class="ctrl-btn ctrl-btn-fs" onclick="openFullscreen('cart')">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-              <span>Plein écran</span>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Slider Container with Clip-Path -->
-      <div class="slider-container mode-desktop" id="slider-cart">
-        <div class="phone-notch-bar"></div>
-        <span class="badge-side-after">◀ Refonte</span>
-        <span class="badge-side-base">Actuel ▶</span>
-        <img src="assets/captures/before/desktop/cart.webp" alt="Panier Version de base" class="slider-img slider-img-base">
-        <img src="assets/captures/after/desktop/cart.webp" alt="Panier Version faite" class="slider-img slider-img-after">
-        <div class="slider-handle">
-          <div class="slider-handle-knob" title="Glissez pour comparer">
-            <span>◀</span>
-            <span style="font-size: 8px; opacity: 0.8;">VS</span>
-            <span>▶</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Fullscreen Modal -->
-  <div class="modal-fullscreen" id="fullscreen-modal">
-    <div class="modal-top-bar">
-      <div>
-        <h3 id="modal-title" style="font-family: var(--font-serif); font-size: 20px;">Vue Grand Format</h3>
-        <span id="modal-status" style="font-size: 12px; color: var(--color-gold);">Affichage : Proposition de refonte</span>
-      </div>
-      <div style="display: flex; gap: 12px; align-items: center;">
-        <button class="modal-toggle-btn" id="modal-toggle-btn" onclick="toggleModalBeforeAfter()">
-          Basculer vers le site actuel
-        </button>
-        <button onclick="closeFullscreen()" style="color: #ffffff; font-size: 24px; padding: 4px 12px; cursor: pointer;">
-          &times;
-        </button>
-      </div>
-    </div>
-    <div class="modal-viewport">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="modal-img" alt="Plein écran" class="modal-img">
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="Aperçu grand format">
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="pres-footer">
-    <p>
-      <strong>Watch &amp; Vintage &bull; Proposition de Refonte pour David Broglin</strong>
-    </p>
-    <p style="margin-top: 8px;">
-      Étude préparée à partir des photographies, textes et montres réels de watchandvintage.fr (relevés le 7 octobre 2026).
-    </p>
+  <footer class="site-footer">
+    <div class="container">
+      <p>
+        Document d'étude préparé pour David Broglin — Watch &amp; Vintage (Le Vingtième Siècle, Alsace).
+      </p>
+      <p style="margin-top:6px; color:#555e6c;">
+        Données réelles relevées sur watchandvintage.fr le 7 octobre 2026 • Captures certifiées 1440×900 et 390×844 • Tous droits réservés.
+      </p>
+    </div>
   </footer>
 
-  <!-- Interactive JavaScript for Comparator, Touch, Mouse, Keyboard -->
+  <!-- Interactive JavaScript Engine -->
   <script>
-    let activeDeviceMode = 'desktop';
-    let currentFullscreenScreen = 'home';
-    let currentFullscreenIsAfter = true;
+    let currentDevice = 'desktop';
+    let currentMode = 'slider';
 
-    // Device switch: desktop slider vs mobile phone frame slider
-    function setDeviceMode(mode) {
-      activeDeviceMode = mode;
-      document.getElementById('btn-desktop').classList.toggle('active', mode === 'desktop');
-      document.getElementById('btn-mobile').classList.toggle('active', mode === 'mobile');
+    // Global Device Switcher (Desktop vs Mobile)
+    function setGlobalDevice(device) {
+      currentDevice = device;
+      
+      // Update buttons
+      document.querySelectorAll('[data-device]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-device') === device);
+      });
 
-      document.querySelectorAll('.slider-container').forEach(container => {
-        const screenName = container.id.replace('slider-', '');
-        const imgBase = container.querySelector('.slider-img-base');
-        const imgAfter = container.querySelector('.slider-img-after');
+      // Update all sliders
+      document.querySelectorAll('.split-slider').forEach(slider => {
+        slider.classList.toggle('desktop-view', device === 'desktop');
+        slider.classList.toggle('mobile-view', device === 'mobile');
 
-        if (mode === 'desktop') {
-          container.classList.remove('mode-mobile');
-          container.classList.add('mode-desktop');
-          imgBase.src = `assets/captures/before/desktop/${screenName}.webp`;
-          imgAfter.src = `assets/captures/after/desktop/${screenName}.webp`;
+        const wrapper = slider.closest('.comparator-wrapper');
+        const screenId = wrapper.getAttribute('data-screen');
+
+        const imgBefore = slider.querySelector('.img-before');
+        const imgAfter = slider.querySelector('.img-after');
+
+        imgBefore.src = `assets/captures/before/${device}/${screenId}.webp`;
+        imgAfter.src = `assets/captures/after/${device}/${screenId}.webp`;
+
+        // Reset handle position to 50%
+        setSliderPosition(slider, 50);
+      });
+    }
+
+    // Global Mode Switcher (Curseur interactif vs Côte à côte)
+    function setGlobalMode(mode) {
+      currentMode = mode;
+
+      document.querySelectorAll('[data-mode]').forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-mode') === mode);
+      });
+
+      document.querySelectorAll('.comparator-wrapper').forEach(wrapper => {
+        const slider = wrapper.querySelector('.split-slider');
+        const sideBySide = wrapper.querySelector('.side-by-side-container');
+
+        if (mode === 'side') {
+          slider.style.display = 'none';
+          sideBySide.style.display = 'grid';
         } else {
-          container.classList.remove('mode-desktop');
-          container.classList.add('mode-mobile');
-          imgBase.src = `assets/captures/before/mobile/${screenName}.webp`;
-          imgAfter.src = `assets/captures/after/mobile/${screenName}.webp`;
+          slider.style.display = 'block';
+          sideBySide.style.display = 'none';
         }
       });
     }
 
-    // Set slider percentage (0% = 100% version de base, 100% = 100% version faite)
-    function setSliderPercent(screenName, pct) {
-      const container = document.getElementById(`slider-${screenName}`);
-      if (!container) return;
-      const afterImg = container.querySelector('.slider-img-after');
-      const handle = container.querySelector('.slider-handle');
-      afterImg.style.clipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
-      handle.style.left = pct + '%';
-    }
+    // Initialize Split Sliders
+    function initSliders() {
+      document.querySelectorAll('.split-slider').forEach(slider => {
+        const handle = slider.querySelector('.split-handle');
+        const layerBefore = slider.querySelector('.layer-before');
+        const imgBefore = layerBefore.querySelector('.split-img');
 
-    // Initialize all sliders with Drag (Mouse / Touch) & Click
-    document.querySelectorAll('.slider-container').forEach(container => {
-      let isDragging = false;
-      const afterImg = container.querySelector('.slider-img-after');
-      const handle = container.querySelector('.slider-handle');
+        let isDragging = false;
 
-      function updatePosition(clientX) {
-        const rect = container.getBoundingClientRect();
-        let x = clientX - rect.left;
-        if (x < 0) x = 0;
-        if (x > rect.width) x = rect.width;
-        const pct = Math.round((x / rect.width) * 100);
-        afterImg.style.clipPath = `inset(0 calc(100% - ${pct}%) 0 0)`;
-        handle.style.left = pct + '%';
-      }
+        function updateSlider(percent) {
+          const clamped = Math.max(0, Math.min(100, percent));
+          layerBefore.style.width = clamped + '%';
+          handle.style.left = clamped + '%';
+          handle.setAttribute('aria-valuenow', Math.round(clamped));
 
-      container.addEventListener('mousedown', (e) => {
-        isDragging = true;
-        updatePosition(e.clientX);
-      });
-      window.addEventListener('mouseup', () => { isDragging = false; });
-      window.addEventListener('mousemove', (e) => {
-        if (!isDragging) return;
-        updatePosition(e.clientX);
-      });
+          // Keep image from squishing by locking its width to the container
+          const containerWidth = slider.offsetWidth;
+          imgBefore.style.width = containerWidth + 'px';
+        }
 
-      // Touch events for mobile/tablet
-      container.addEventListener('touchstart', (e) => {
-        isDragging = true;
-        updatePosition(e.touches[0].clientX);
-      }, { passive: true });
-      window.addEventListener('touchend', () => { isDragging = false; });
-      window.addEventListener('touchmove', (e) => {
-        if (!isDragging) return;
-        updatePosition(e.touches[0].clientX);
-      }, { passive: true });
-    });
+        slider._update = updateSlider;
+        updateSlider(50);
 
-    // Keyboard navigation (Left / Right arrow on focused slider)
-    window.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        const visibleSliders = document.querySelectorAll('.slider-container');
-        visibleSliders.forEach(s => {
-          const rect = s.getBoundingClientRect();
-          if (rect.top >= -200 && rect.top <= window.innerHeight * 0.7) {
-            const handle = s.querySelector('.slider-handle');
-            const afterImg = s.querySelector('.slider-img-after');
-            let cur = parseFloat(handle.style.left) || 50;
-            if (e.key === 'ArrowLeft') cur = Math.max(0, cur - 5);
-            if (e.key === 'ArrowRight') cur = Math.min(100, cur + 5);
-            afterImg.style.clipPath = `inset(0 calc(100% - ${cur}%) 0 0)`;
-            handle.style.left = cur + '%';
+        function getPercentFromEvent(e) {
+          const rect = slider.getBoundingClientRect();
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const pos = clientX - rect.left;
+          return (pos / rect.width) * 100;
+        }
+
+        // Mouse Events
+        handle.addEventListener('mousedown', (e) => {
+          e.preventDefault();
+          isDragging = true;
+        });
+        window.addEventListener('mousemove', (e) => {
+          if (!isDragging) return;
+          updateSlider(getPercentFromEvent(e));
+        });
+        window.addEventListener('mouseup', () => {
+          isDragging = false;
+        });
+
+        // Touch Events
+        handle.addEventListener('touchstart', (e) => {
+          isDragging = true;
+        }, { passive: true });
+        window.addEventListener('touchmove', (e) => {
+          if (!isDragging) return;
+          updateSlider(getPercentFromEvent(e));
+        }, { passive: true });
+        window.addEventListener('touchend', () => {
+          isDragging = false;
+        });
+
+        // Click on slider track
+        slider.addEventListener('click', (e) => {
+          if (e.target.closest('.split-handle')) return;
+          updateSlider(getPercentFromEvent(e));
+        });
+
+        // Keyboard Accessibility (Arrows)
+        handle.addEventListener('keydown', (e) => {
+          const current = parseFloat(handle.style.left) || 50;
+          let step = 5;
+          if (e.shiftKey) step = 15;
+
+          if (e.key === 'ArrowLeft' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            updateSlider(current - step);
+          } else if (e.key === 'ArrowRight' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            updateSlider(current + step);
+          } else if (e.key === 'Home') {
+            e.preventDefault();
+            updateSlider(0);
+          } else if (e.key === 'End') {
+            e.preventDefault();
+            updateSlider(100);
           }
         });
+
+        // Recalculate on window resize
+        window.addEventListener('resize', () => {
+          const currentPercent = parseFloat(handle.style.left) || 50;
+          updateSlider(currentPercent);
+        });
+      });
+    }
+
+    function setSliderPosition(slider, percent) {
+      if (slider._update) {
+        slider._update(percent);
       }
+    }
+
+    // Alias for compatibility
+    window.setSliderPercent = function(screenName, percent) {
+      const slider = document.getElementById(`slider-${screenName}`);
+      if (slider) setSliderPosition(slider, percent);
+    };
+
+    // Lightbox Functionality
+    let activeLightboxScreen = '';
+    let activeLightboxState = 'after'; // 'before' or 'after'
+
+    function openLightbox(screenId, title) {
+      activeLightboxScreen = screenId;
+      activeLightboxState = 'after';
+      const modal = document.getElementById('lightbox');
+      const titleEl = document.getElementById('lightbox-title');
+      const imgEl = document.getElementById('lightbox-img');
+      const toggleBtn = document.getElementById('lightbox-toggle');
+
+      titleEl.textContent = `${title} — Proposition`;
+      imgEl.src = `assets/captures/after/${currentDevice}/${screenId}.webp`;
+      toggleBtn.textContent = 'BASCULER VERS : AVANT';
+
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function toggleLightboxState() {
+      activeLightboxState = activeLightboxState === 'after' ? 'before' : 'after';
+      const imgEl = document.getElementById('lightbox-img');
+      const toggleBtn = document.getElementById('lightbox-toggle');
+      const titleEl = document.getElementById('lightbox-title');
+
+      imgEl.src = `assets/captures/${activeLightboxState}/${currentDevice}/${activeLightboxScreen}.webp`;
+      if (activeLightboxState === 'after') {
+        toggleBtn.textContent = 'BASCULER VERS : AVANT';
+        titleEl.textContent = titleEl.textContent.replace('Avant (En ligne)', 'Proposition');
+      } else {
+        toggleBtn.textContent = 'BASCULER VERS : PROPOSITION';
+        titleEl.textContent = titleEl.textContent.replace('Proposition', 'Avant (En ligne)');
+      }
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Escape and Space shortcuts
+    window.addEventListener('keydown', (e) => {
+      const modal = document.getElementById('lightbox');
+      if (!modal.classList.contains('active')) return;
+
       if (e.key === 'Escape') {
-        closeFullscreen();
+        closeLightbox();
+      } else if (e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        toggleLightboxState();
       }
     });
 
-    // Fullscreen view modal
-    function openFullscreen(screenName) {
-      currentFullscreenScreen = screenName;
-      currentFullscreenIsAfter = true;
-      const modal = document.getElementById('fullscreen-modal');
-      const img = document.getElementById('modal-img');
-      const status = document.getElementById('modal-status');
-      const btn = document.getElementById('modal-toggle-btn');
-
-      img.src = `assets/captures/after/${activeDeviceMode}/${screenName}.webp`;
-      status.innerText = 'Affichage : Version faite (Proposition)';
-      btn.innerText = 'Basculer vers la Version de base (Actuel)';
-
-      modal.style.display = 'flex';
-    }
-
-    function toggleModalBeforeAfter() {
-      currentFullscreenIsAfter = !currentFullscreenIsAfter;
-      const img = document.getElementById('modal-img');
-      const status = document.getElementById('modal-status');
-      const btn = document.getElementById('modal-toggle-btn');
-      const folder = currentFullscreenIsAfter ? 'after' : 'before';
-
-      img.src = `assets/captures/${folder}/${activeDeviceMode}/${currentFullscreenScreen}.webp`;
-      status.innerText = currentFullscreenIsAfter ? 'Affichage : Version faite (Proposition)' : 'Affichage : Version de base (Actuel)';
-      btn.innerText = currentFullscreenIsAfter ? 'Basculer vers la Version de base' : 'Basculer vers la Version faite';
-    }
-
-    function closeFullscreen() {
-      document.getElementById('fullscreen-modal').style.display = 'none';
-    }
-
-    function setActiveVignette(el) {
-      document.querySelectorAll('.vignette-btn').forEach(b => b.classList.remove('active'));
-      el.classList.add('active');
-    }
-
-    // Auto-detect mobile screen on initial load
-    if (window.innerWidth <= 768) {
-      setDeviceMode('mobile');
-    }
+    document.addEventListener('DOMContentLoaded', () => {
+      initSliders();
+      // If mobile width on first load, switch to mobile mode
+      if (window.innerWidth <= 768) {
+        setGlobalDevice('mobile');
+      }
+    });
   </script>
 </body>
 </html>
